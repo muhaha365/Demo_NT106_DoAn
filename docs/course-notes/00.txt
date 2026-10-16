@@ -1,0 +1,528 @@
+
+--- PAGE 1 ---
+ 
+ 
+ 
+ 
+1 
+ 
+ĐẠI HỌC QUỐC GIA TP. HỒ CHÍ MINH 
+TRƢỜNG ĐẠI HỌC CÔNG NGHỆ THÔNG TIN 
+ 
+ĐỀ CƢƠNG MÔN HỌC 
+NT106- LẬP TRÌNH MẠNG CĂN BẢN 
+1. THÔNG TIN CHUNG (General information) 
+ 
+Tên môn học (tiếng Việt): Lập trình mạng căn bản 
+Tên môn học (tiếng Anh): Basic Network Programming 
+Mã môn học: NT106 
+Thuộc khối kiến thức: Đại cương □; Cơ sở ngành □;  
+Cơ sở ngành ✔; Chuyên ngành □; Tốt nghiệp □ 
+Khoa, Bộ môn phụ trách: Mạng máy tính và Truyền Thông 
+Giảng viên biên soạn: ThS. Đỗ Thị Hương Lan 
+Email: landth@uit.edu.vn 
+Số tín chỉ: 3 
+Lý thuyết:  2  
+Thực hành:  1  
+Tự học:    
+Môn học tiên quyết:   
+Môn học trước: Nhập môn Mạng máy tính; Nhập môn lập trình 
+2. MÔ TẢ MÔN HỌC (Course description) 
+Lập trình mạng căn bản là môn học cơ sở ngành, được giảng dạy  cho sinh viên năm 2 -3 Khoa 
+Mạng máy tính và Truyền Thông của Trường Đại học công nghệ thông tin – TP. Hồ Chí Minh. 
+Môn học trang bị cho sinh viên những kiến thức nền tảng về Mạng và Lập trình Mạng: 
+- Kiến thức cơ bản về ứng dụng mạng, giao thức, cơ chế giao  tiếp của các ứng dụng trên 
+mạng máy tính 
+- Thiết kế và lập trình ứng dụng/chương trình theo mô hình Client – Server 
+- Lập trình Socket: UDP và TCP 
+- Lập trình đa luồng Multi-threading 
+- Cơ bản về bảo mật trong Lập trình mạng 
+- Web Services 
+[Mẫu ĐCMH-2016-1] 
+ 
+
+
+--- PAGE 2 ---
+ 
+ 
+ 
+ 
+2 
+ 
+3. MỤC TIÊU MÔN HỌC (Course goals) 
+Sau khi hoàn thành môn học này, sinh viên có thể: 
+Bảng 1. 
+Ký 
+hiệu 
+Mục tiêu môn học Chuẩn đầu ra 
+trong CTĐT 
+Mức độ 
+G1 Nắm được kiến thức lập trình LO2 (2.1) Nhận thức - 4 
+G2 Nắm được kiến thức về giao thức mạng, 
+mô hình mạng và ứng dụng mạng 
+LO2 (2.2.1) Nhận thức - 4 
+G3 Xây dựng, hiện thực  các ứng dụng mạng 
+cơ bản 
+LO4 (4.2) 
+LO5 (5.1) 
+Kỹ năng - 4 
+4. CHUẨN ĐẦU RA MÔN HỌC (Course learning outcomes) 
+Bảng 2. 
+CĐRMH Mô tả CĐRMH (Mục tiêu cụ thể) Mức độ giảng dạy 
+G1.1 Nắm kiến thức cơ bản về lập trình IT 
+G2.1 Nắm được kiến thức cơ bản về mạng, giao thức mạng, 
+mô hình mạng 
+IT 
+G2.2 
+Hiểu được mô hình hoạt động, cách thức vận hành 
+của các ứng dụng mạng cơ bản để vận dụng vào phát 
+triển và hiện thực các ứng dụng mạng 
+ITU 
+G3.1 Phát triển, hiện thực các ứng dụng mạng cơ bản ITU 
+G3.2 Giao tiếp, hợp tác hiệu quả trong nhóm để xây dựng 
+ứng dụng 
+TU 
+5. NỘI DUNG MÔN HỌC, KẾ HOẠCH GIẢNG DẠY (Course content, lesson plan) 
+a. Lý thuyết 
+Bảng 3. 
+Buổi học 
+(x tiết)  
+Nội dung CĐRMH  Hoạt động dạy 
+và học 
+Thành phần 
+đánh giá 
+Buổi  1 
+(2 tiết) 
+Chƣơng 1. Tổng quan về mạng và 
+ứng dụng mạng 
+1.1 Giới thiệu các khái niệm cơ bản 
+về mạng, dịch vụ, ứng dụng mạng 
+G1.1, 
+G2.1, 
+G2.2 
+Dạy:  
+Lý thuyết  
+Học ở lớp:  
+Nghe giảng. 
+Học ở nhà:  
+Cài đặt môi 
+A1, A3 
+
+--- PAGE 3 ---
+ 
+ 
+ 
+ 
+3 
+ 
+1.2 Cơ sở nền tảng về ứng dụng 
+mạng 
+1.3 Chi tiết về mô hình OSI và cơ 
+chế vận hành trong các dịch vụ mạng 
+1.4 Lập trình mạng với .NET 
+Framework và C# 
+trường phát triển 
+ứng dụng 
+Buổi 2 
+(2 tiết) 
+Chƣơng 2. Luồng dữ liệu (Stream) 
+và I/O 
+2.1 Giới thiệu về I/O và Stream 
+2.3 Đọc & ghi dữ liệu với FileStream 
+2.4 Đọc & ghi dữ liệu với 
+StreamReader & StreamWriter 
+2.5 Kết nối ứng dụng với CSDL 
+G1.1, 
+G2.2, 
+G3.1 
+Dạy:  
+Lý thuyết và lập 
+trình minh họa 
+Học ở lớp:  
+Chạy các source 
+code minh họa 
+Học ở nhà:  
+Viết ứng dụng cơ 
+bản 
+A1, A3 
+Buổi 3 
+(2 tiết) 
+Chƣơng 3: Lập trình đa luồng - 
+multi-threading 
+3.1. Giới thiệu về  Thread và Muti -
+threading 
+3.2. Lớp Thread C#  
+3.3 Vòng đời của Thread 
+3.4 Các phương thức của Thread 
+G1.1, 
+G2.2, 
+G3.1, 
+G3.2 
+Dạy:  
+Lý thuyết và lập 
+trình minh họa 
+Giảng viên phân 
+chia nhóm đồ án 
+môn học. 
+Học ở lớp:  
+Chạy các source 
+code minh họa  
+Học ở nhà:  
+Làm bài tập 
+A1, A3 
+Buổi 4 
+(2 tiết) 
+Chƣơng 4. Lập trình Socket  
+4.1. Giới thiệu Socket 
+4.2. Lớp Socket trong C# 
+4.3 Các lớp hỗ trợ lập trình socket: 
+IPAddress, IPEndpoint, IPHostEntry, 
+DNS … 
+G1.1, 
+G2.1, 
+G2.2, 
+G3.1, 
+G3.2 
+Dạy:  
+Lý thuyết và lập 
+trình minh họa. 
+Học ở lớp:  
+Chọn nhóm môn 
+học. 
+Học ở nhà:  
+Tìm hiểu, phân 
+tích ý tưởng cho 
+đề tài. 
+A1, A3 
+Buổi 5, 6 
+(4 tiết) 
+Chƣơng 5. Lập trình mạng hƣớng 
+phi kết nối (UDP) và hƣớng kết nối 
+(TCP) 
+5.1 Mô hình  Client-Server của ứng 
+dụng sử dụng UDP 
+G1.1, 
+G2.1, 
+G2.2, 
+G3.1 
+Dạy:  
+Lý thuyết và lập 
+trình minh họa 
+Học ở lớp:  
+Chạy các source 
+code minh họa. 
+Học ở nhà:  
+Làm bài tập 
+A1, A3 
+
+--- PAGE 4 ---
+ 
+ 
+ 
+ 
+4 
+ 
+5.2  UDPClient 
+5.3 Mô hình Client -Server của ứng 
+dụng sử dụng TCP 
+5.4 TcpClient 
+5.5 TcpListener 
+Buổi 7 
+(2 tiết) 
+Chƣơng 6. Lập trình với giao thức 
+tầng ứng dụng HTTP 
+6.1 Giới thiệu về giao thức HTTP và 
+ứng dụng Web 
+6.2 HTTP Request và Response 
+6.3 Lập trình Web client 
+6.4 Lập trình Web server 
+6.5 Web Service, API 
+G1.1, 
+G2.1, 
+G2.2, 
+G3.1 
+Dạy:  
+Lý thuyết và lập 
+trình minh họa 
+Học ở lớp:  
+Chạy các source 
+code minh họa. 
+Học ở nhà:  
+Làm bài tập 
+A1, A3 
+Buổi 8, 9 
+(4 tiết) 
+ 
+Chƣơng 7. Lập trình với các giao 
+thức tầng ứng dụng  làm việc với 
+thƣ điện tử 
+7.1 Giới thiệu về email và nguyên tắc 
+hoạt động 
+7.2 Gửi mail với SMTP 
+7.3 Nhận mail với POP3 và IMAP 
+7.4 Lập trình Gửi Mail 
+7.5 Lập trình Nhận Mail 
+Sinh viên báo cáo quá trình và 
+giảng viên hỗ trợ nhóm sinh viên 
+G1.1, 
+G2.1, 
+G2.2, 
+G3.1, 
+G3.2 
+Dạy:  
+Lý thuyết và lập 
+trình minh họa 
+Học ở lớp:  
+Chạy các  source 
+code minh họa. 
+Học ở nhà:  
+Làm bài tập 
+A1, A3 
+Buổi 10 
+(2 tiết) 
+ 
+Chƣơng 8. Lập trình với các giao 
+thức tầng ứng dụng FTP 
+8.1 Giới thiệu về FTP và nguyên tắc 
+hoạt động 
+8.2 Cài đặt FTP Server và FTP Client 
+8.3 Lệnh FTP trong CMD của 
+Windows 
+8.4 Lập trình FTP Client 
+G1.1, 
+G2.1, 
+G2.2, 
+G3.1 
+Dạy:  
+Lý thuyết và lập 
+trình minh họa 
+Học ở lớp:  
+Chạy các source 
+code minh họa. 
+Học ở nhà:  
+Làm bài tập 
+A1, A3 
+
+--- PAGE 5 ---
+ 
+ 
+ 
+ 
+5 
+ 
+Buổi 11 
+(2 tiết) 
+Chƣơng 8. Lập trình với RAW 
+SOCKET 
+8.1  Giao thức ICMP 
+8.2  Ứng dụng Ping trong C# 
+8.3 Ứng dụng Tracert Route trong C# 
+G1.1, 
+G2.1, 
+G2.2, 
+G3.1 
+Dạy:  
+Lý thuyết và lập 
+trình minh họa 
+Học ở lớp:  
+Chạy các source 
+code minh họa. 
+Học ở nhà:  
+Làm bài tập 
+A1, A3 
+Buổi 12 
+(2 tiết) 
+Chƣơng 9. Phân tích gói tin mạng 
+9.1 Giới thiệu 
+9.2 Phân tích mức Network (IP-level) 
+9.3 Phân tích mức Data-link 
+9.4 Phân tích mức Physical 
+G1.1, 
+G2.1, 
+G2.2, 
+G3.1 
+Dạy:  
+Lý thuyết và lập 
+trình minh họa 
+Học ở lớp:  
+Chạy các source 
+code minh họa. 
+Học ở nhà:  
+Làm bài tập 
+A1, A3 
+Buổi 13 
+(2 tiết) 
+Chƣơng 10. Bảo mật  
+10.1 Cơ bản về bảo mật trong lập 
+trình mạng 
+10.2  Cơ bản về Mã hóa 
+10.3 Các thư viện hỗ trợ mã hóa trong 
+.NET 
+G1.1, 
+G2.1, 
+G2.2, 
+G3.1 
+Dạy:  
+Lý thuyết và lập 
+trình minh họa 
+Học ở lớp:  
+Chạy các source 
+code minh họa. 
+Học ở nhà:  
+Làm bài tập 
+A1, A3 
+Buổi 
+14,15 
+(4 tiết) 
+Seminar, Báo cáo Đồ án môn học G3.1, 
+G3.2 
+Dạy:  
+Chấm đồ án môn 
+học 
+Học ở lớp:  
+Báo cáo đồ án 
+môn học  
+A1, A3 
+b. Thực hành 
+Bảng 4. 
+Buổi học 
+(5 tiết) 
+Nội dung CĐRMH Hoạt động dạy và học Thành 
+phần 
+đánh giá 
+Buổi  1 Bài thực hành 1  
+Làm quen với C# 
+Windows Forms 
+G1.1, 
+G2.1, 
+G2.2,  
+G3.1 
+Giảng viên hướng dẫn sinh 
+viên các bài thực hành và 
+các bước thực hiện 
+Sinh viên: Thực hành và 
+kiểm chứng kết quả tại 
+buổi học 
+A2 
+Buổi 2 Bài thực hành 2  
+File và I/O, Stream trong 
+C# 
+G1.1, 
+G2.1, 
+G2.2,  
+Giảng viên hướng dẫn sinh 
+viên các bài thực hành và 
+các bước thực hiện 
+A2 
+
+--- PAGE 6 ---
+ 
+ 
+ 
+ 
+6 
+ 
+G3.1 Sinh viên: Thực hành và 
+kiểm chứng kết quả tại 
+buổi học 
+Buổi 3 Bài thực hành 3 
+Lập trình Socket 
+G1.1, 
+G2.1, 
+G2.2,  
+G3.1 
+Giảng viên hướng dẫn sinh 
+viên các bài thực hành và 
+các bước thực hiện 
+Sinh viên: Thực hành và 
+kiểm chứng kết quả tại 
+buổi học 
+A2 
+Buổi 4 Bài thực hành 4  
+Tƣơng tác với Web Server 
+G1.1, 
+G2.1, 
+G2.2,  
+G3.1 
+Giảng viên hướng dẫn sinh 
+viên các bài thực hành và 
+các bước thực hiện 
+Sinh viên: Thực hành và 
+kiểm chứng kết quả tại 
+buổi học 
+A2 
+Buổi 5 Bài thực hành 5  
+Gửi và nhận mail trong C# 
+G1.1, 
+G2.1, 
+G2.2,  
+G3.1 
+Giảng viên hướng dẫn sinh 
+viên các bài thực hành và 
+các bước thực hiện 
+Sinh viên: Thực hành và 
+kiểm chứng kết quả tại 
+buổi học 
+A2 
+Buổi 6 Bài thực hành 6  
+Tự chọn 
+G1.1, 
+G2.1, 
+G2.2,  
+G3.1 
+Giảng viên hướng dẫn sinh 
+viên các bài thực hành và 
+các bước thực hiện 
+Sinh viên: Thực hành và 
+kiểm chứng kết quả tại 
+buổi học 
+A2 
+6. ĐÁNH GIÁ MÔN HỌC (Course assessment) 
+Bảng 5. 
+Thành phần đánh giá CĐRMH Tỷ lệ (%) 
+A1. Quá trình (Kiểm tra trên 
+lớp, Bài tập, Đồ án…) 
+G1.1, G2.1, G2.2, G.3.1 , 
+G3.2 
+30% 
+A2. Thực hành G1.1, G2.1, G2.2, G.3.1 20% 
+A3. Vấn đáp cuối kỳ (Cá nhân, 
+Nhóm) 
+G1.1, G2.1, G2.2, G3.1, G3.2 50% 
+7. QUY ĐỊNH CỦA MÔN HỌC (Course requirements and expectations) 
+- Đồ án môn học: Các đồ án cho các nhóm sinh viên được đưa ra theo yêu cầu của giảng viên. 
+- Có mặt trên lớp: điểm danh sẽ được thực hiện vào đầu của mỗi buổi học. Sinh viên không có 
+mặt tại thời điểm đó sẽ được ghi vắng mặt. 
+- Sinh viên vắng mặt trong buổi thi mà không có lý do thỏa đáng sẽ có điểm 0. 
+
+--- PAGE 7 ---
+ 
+ 
+ 
+ 
+7 
+ 
+8. TÀI LIỆU HỌC TẬP, THAM KHẢO 
+1. Sean Burns, Hands -On Network Programming with C# and. NET Core: Build robust 
+network applications with C# and. NET Core, 2019 
+2. Esmond Pitt, Fundamental Networking in Java, Springer, 2010. 
+3. Kenneth L. Calvert & Michael J. Donahoo, TCP/IP Sockets in Java, Second Edition: 
+Practical Guide for Programmers (The Practical Guides), Morgan Kaufmann, 2008. 
+4. Natarajan Meghanathan, A Tutorial on Java Socket Programming and Source Code 
+Analysis: Complete Java Source Code Examples and Practice Exercises: Supplement for Computer 
+Networks & Software Security Courses, LAP LAMBERT Academic Publishing, 2012. 
+5. Fiach Reid, Network programming in NET with CSharp and VB.NET, Digital Press, 2004 
+9. PHẦN MỀM HAY CÔNG CỤ HỖ TRỢ THỰC HÀNH 
+1. NetBean / Eclipse hoặc Visual Studio. 
+2. JDK. 
+Tp.HCM, ngày 14 tháng 10 năm 2022 
+Trƣởng khoa/ bộ môn 
+(Ký và ghi rõ họ tên) 
+ Giảng viên 
+(Ký và ghi rõ họ tên) 
+ 
+ 
+ 
+Đỗ Thị Hƣơng Lan 
+   
+ 

@@ -1,0 +1,743 @@
+--- PAGE 1 ---
+CHƯƠNG 5GIAO TIẾP VỚI 
+EMAIL 
+SERVER
+LẬP TRÌNH MẠNG CĂN BẢN
+
+--- PAGE 2 ---
+NỘI DUNG
+Giới thiệu
+Nguyên tắc hoạt động
+SMTP
+POP3, IMAP 
+System
+.Net.
+Mail
+Giao tiếp với ứng dụng mail 
+Chương 4: Truyền thông với Web server
+2
+
+--- PAGE 3 ---
+GIỚI THIỆU
+Email
+là
+thư
+điện
+tửđược
+sửdụng
+trong
+môi
+trường
+Internet
+đểngười
+dùng
+có
+thể
+trao
+đổi
+thông
+điệp
+với
+nhau
+.
+Email
+là một
+cách
+thứ
+c giao
+tiếp
+quan
+trọng
+và phổ
+biến
+nhất
+trong
+mọi
+lĩnh
+vực
+đời
+sống,
+xã
+hội
+…
+Lập
+trình
+quản
+lý email
+là vấn
+đềquan
+trọng
+và cần
+thiết
+3
+
+--- PAGE 4 ---
+EMAIL LÀ GÌ?
+Mỗi email có địa chỉ duy nhất, dạng:<Username>
+@<domain name>
+Với
+: 
+<domain name> duy nhất trên hệ thống DNS toàn cầu
+<Username> chỉ cần duy nhất trong mail
+server của 
+người nhận
+4
+Ví dụ: 
+16520010
+@gm.uit.edu.vn
+, tranvana
+@gmail.com
+
+--- PAGE 5 ---
+NGUYÊN TẮC HOẠT ĐỘNG CỦA 
+VIỆC
+GỬI NHẬN
+MAIL
+5
+Gửi
+email
+: Sửdụng
+SMTP
+Nhận
+email
+: Có
+2 giao
+thức
+chính
+là POP
+( 110
+) và IMAP
+( 143
+)
+Webmail
+: S ửdụng
+giao
+thức
+HTTP
+(dựa
+trên
+Webmail)
+để
+gửi
+và
+nhận
+email
+.
+
+--- PAGE 6 ---
+GỬI EMAIL
+E mail
+không
+được
+gửi
+trực
+tiếp
+từngười
+gửi
+đến
+người
+nhận
+mà thông
+qua
+các
+Mail
+Server
+.
+Khi
+người
+gửi
+soạn
+và
+gửi
+đi một
+email,
+thư
+này
+sẽđược
+xếp
+tại hàng
+chờ
+(Mail
+Queue)
+của
+Mail
+Server
+(người
+gửi
+) .
+Mail
+Server
+của
+người
+gửi
+sẽchuyển
+email
+này
+đến
+Mail
+Server
+của
+người
+nhận
+.
+6
+
+--- PAGE 7 ---
+EMAIL CLIENTS VÀ WEBMAIL
+Webmail: truy cập email bằng trình duyệt
+Email client: ứng dụng quản lý email
+Cả 2 đều là ứng dụng 
+gửi và nhận 
+email
+7
+
+--- PAGE 8 ---
+WEBMAIL
+8
+
+--- PAGE 9 ---
+EMAIL CLIENT
+9
+
+--- PAGE 10 ---
+SMTP 
+– SIMPLE MAIL TRANSFER PROTOCOL
+Giao thức 
+chỉ dùng để gửi email
+Mọi mail server phải tuân theo chuẩn
+SMTP để gửi được 
+đến đích (RFC 821)
+Cài đặt một mail server đơn giản
+:
+H ướng dẫn
+trong bộ cài đặt Windows Server 
+D ùng phần mềm của bên thứ 3:
+AspEmail, Mercury, 
+Pegasus
+, MDaemon 
+… 
+11
+
+--- PAGE 11 ---
+GỬI SMTP MAIL 
+Dùng TCP port 25
+Dùng telnet để kiểm tra địa chỉ IP của ISP
+Mở 
+cmd
+Nhập
+lệnh: telnet <server name> 25
+Khi client đã kết nối được với server thì
+server luôn trả 
+lời với nội dung: 
+220 <lời
+chúc mừng> <version
+-number>
+12
+
+--- PAGE 12 ---
+PHIÊN LÀM VIỆC VỚI
+SMT
+P
+Một phiên 
+làm việc:
+HELOMAIL FROM: 
+<địa chỉ email của người gửi>
+RCPT TO: 
+<địa chỉ email của người nhận>
+DATA<nội dung của email>
+.QUIT 
+13
+
+--- PAGE 13 ---
+Application Layer
+2-14
+ĐỊNH DẠNG THÔNG ĐIỆP MAIL
+RFC 
+822: 
+chuẩn
+cho
+định
+dạng
+thông
+điệp
+văn
+bản
+:
+Các
+dòng
+header, 
+ví dụ
+To:
+From:
+Subject:Khác
+với
+các
+lệnh
+SMTP 
+MAIL FROM, RCPT TO
+!
+Body: “
+thông
+điệp
+”
+Chỉ
+có
+các
+ký
+tựASCII
+header
+body
+dòng trống
+
+--- PAGE 14 ---
+GỬI SMTP 
+MAIL (VD)
+15
+
+--- PAGE 15 ---
+GỬI SMTP 
+MAIL (VD)
+16
+
+--- PAGE 16 ---
+LẬP TRÌNH GỬI MAIL 
+BẰNG TCPCLIENT 
+Khai báo thư viện:
+using System.Threading;
+using System.Net;
+using System.Net.Sockets;
+using System.Text;
+using System.IO;
+17
+
+--- PAGE 17 ---
+LẬP TRÌNH GỬI MAIL BẰNG TCPCLIENT 
+Khai báo đối tượng thuộc lớp TcpClient để
+quản lý kết nối 
+với server: TcpClient 
+tcp client;
+18
+tcpclient = new TcpClient();
+tcpclient.Connect("127.0.0.1", 25);
+
+--- PAGE 18 ---
+LẬP TRÌNH GỬI MAIL BẰNG TCPCLIENT 
+Sửdụng StreamReader và StreamWriter để đọc và ghi dữ
+liệu
+19
+StreamReader sr = new StreamReader(tcpclient.GetStream());
+StreamWriter sw = new StreamWriter(tcpclient.GetStream());
+
+--- PAGE 19 ---
+LẬP TRÌNH GỬI MAIL BẰNG 
+TCPCLIEN
+T
+Gửi 
+lời chào cho server
+:
+data = "EHLO teacher.nt106";
+sw.WriteLine(data);
+sw.Flush(); 
+Chọn xác thự
+c :
+data = "AUTH LOGIN";
+sw.WriteLine(data);
+sw.Flush(); 
+20
+
+--- PAGE 20 ---
+LẬP TRÌNH GỬI MAIL BẰNG 
+TCPCLIEN
+T
+Hàm chuyển chuỗi sang dạng base64:
+static public string EncodeTo64(string toEncode)
+{
+byte[] toEncodeAsBytes = 
+System.Text.ASCIIEncoding.ASCII.GetBytes(toEncode);
+string returnValue = 
+System.Convert.ToBase64String(toEncodeAsBytes);
+return returnValue;
+}
+21
+
+--- PAGE 21 ---
+LẬP TRÌNH GỬI MAIL BẰNG TCPCLIENT
+Đối với SMTP
+, chỉ có thể dùng
+ASCII.GetBytes vì 
+SMTP
+là 
+giao thức gửi dựa
+trên văn bản, dữ liệu nhị phân không 
+được
+chấp nhận
+22
+
+--- PAGE 22 ---
+LẬP TRÌNH GỬI MAIL BẰNG 
+TCPCLIEN
+T
+Gửi thông tin username đã chuyển sang base64:
+string username = EncodeTo64(mailfrom);
+sw.WriteLine(username);
+sw.Flush();
+Gửi thông tin 
+password 
+đã chuyển sang base64 
+:
+sw.WriteLine(EncodeTo64(password));
+sw.Flush();
+23
+
+--- PAGE 23 ---
+LẬP TRÌNH GỬI MAIL BẰNG 
+TCPCLIEN
+T
+Gửi địa chỉ sender cho server:
+data = "MAIL FROM:<" + mailfrom + ">";
+sw.WriteLine(data);
+sw.Flush(); 
+Gửi địa chỉ receiver cho server:
+data = "RCPT TO:<" + mailto + ">";
+sw.WriteLine(data);
+sw.Flush(); 
+24
+
+--- PAGE 24 ---
+LẬP TRÌNH GỬI MAIL BẰNG TCPCLIENT
+Bắt đầu nội dung thư:
+data = "DATA";
+sw.WriteLine(data);
+sw.Flush();
+Thiết 
+lập subject:
+data = "Subject: " + Subject;
+sw.WriteLine(data);
+sw.Flush();
+25
+
+--- PAGE 25 ---
+LẬP TRÌNH GỬI MAIL BẰNG TCPCLIENT
+Ngắt kết nối:
+data = "QUIT";
+sw.WriteLine(data);
+sw.Flush();
+26
+
+--- PAGE 26 ---
+LẬP TRÌNH GỬI MAIL BẰNG TCPCLIENT
+27
+
+--- PAGE 27 ---
+LẬP TRÌNH GỬI MAIL BẰNG TCPCLIENT
+28
+
+--- PAGE 28 ---
+LẬP TRÌNH GỬI MAIL BẰNG 
+SMTPCLIENT
+29
+https://docs.microsoft.com/en
+-us/dotnet/api/system.net.mail.smtpclient?view=netframework
+- 4.8
+
+--- PAGE 29 ---
+LẬP TRÌNH GỬI MAIL BẰNG 
+SMTPCLIENT
+30
+private void sendEmail_click(object sender, EventArgs e)
+{
+using (SmtpClient smtpClient = new SmtpClient("127.0.0.1"))
+{
+string mailfrom = txtMailFrom.Text.ToString().Trim();
+string mailto = txtMailTo.Text.ToString().Trim();
+string password = txtPass.Text.ToString().Trim();
+var basicCredential = new NetworkCredential(mailfrom, 
+password);
+using (MailMessage message = new MailMessage())
+{
+MailAddress fromAddress = new MailAddress(mailfrom);
+smtpClient.UseDefaultCredentials = false;
+smtpClient.Credentials = basicCredential;
+
+--- PAGE 30 ---
+LẬP TRÌNH GỬI MAIL BẰNG 
+SMTPCLIENT
+31
+message.From = fromAddress;
+message.Subject = txtSubject.Text.ToString().Trim() + 
+" From SMTPClient";
+// Set IsBodyHtml to true means you can send HTML 
+email.
+message.IsBodyHtml = true;
+message.Body = rtbBody.Text.ToString();
+message.To.Add(mailto);
+try
+{
+smtpClient.Send(message);
+}
+catch (Exception ex)
+{
+MessageBox.Show(ex.ToString());
+}
+}
+}
+}
+
+--- PAGE 31 ---
+LẬP TRÌNH GỬI MAIL BẰNG 
+SMTPCLIENT
+32
+
+--- PAGE 32 ---
+LẬP TRÌNH GỬI MAIL BẰNG MAILKIT
+33
+https://github.com/jstedfast/MailKit
+
+--- PAGE 33 ---
+NHẬN 
+MAIL
+Mở 
+cmd
+Gõ lệnh: telnet <
+server name> 
+110 hoặc 143
+34
+
+--- PAGE 34 ---
+NHẬN 
+MAIL
+Mở 
+cmd
+Gõ lệnh: telnet <
+server name> 
+110 hoặc 143
+35
+
+--- PAGE 35 ---
+NHẬN 
+MAIL (IMAP)
+36
+
+--- PAGE 36 ---
+POP3 VÀ IMAP
+37
+Giao thức c
+ơ bản để nhận email
+
+--- PAGE 37 ---
+POP 
+-POST OFFICE PROTOCOL
+Năm 1984, do máy tính hạn chế tốc độ, băng thông 
+tạo 
+ra POP
+Năm 1985, POP2 ra đời
+POP3: chuẩn phổ biến nhất, có hỗ trợ chức năng 
+leave 
+mail on server
+POP tải các bản copy 
+của email để 
+đọc khi offline
+, sau đó 
+xóa
+những 
+email
+trên remote server
+38
+
+--- PAGE 38 ---
+POP
+Kết nối đến server
+Nhận toàn bộ mail
+Lưu cục bộ như mail mới
+Xóa mail trong server
+Ngắt kết nối
+39
+
+--- PAGE 39 ---
+POP3
+Mọi ISP
+và nhiều công ty 
+cung cấp dịch vụ Web hosting 
+có 
+hỗ trợ 
+POP3 server
+Đ ược định nghĩa trong RFC 1939,
+hoạt động trên TCP port 
+110
+40
+
+--- PAGE 40 ---
+POP3
+POP3 cũng là giao thức
+dựa trên dòng lệnh
+Mỗi dòng lệnh kết thúc bằng ký tự linefeed (enter)
+Khi server hoạt động bình thường, mỗi
+dòng sẽ bắt đầu 
+với +OK. Nếu lỗi xảy ra,
+dòng sẽ bắt đầu với 
+– ERR
+41
+
+--- PAGE 41 ---
+POP3
+Để truy xuất được mailbox, client phải
+chứng thực chính 
+nó với username,
+password
+Client gửi
+:USER <username><enter>Server trả lời
+:
++OK <welcome><enter>Client gửi mật khẩu: PASSWORD
+<password><enter>
+42
+
+--- PAGE 42 ---
+POP3
+Để xem trạng thái mailbox
+:
+C lient gửi: STAT <enter>
+Server gửi: +OK <số thứ tự> <dung
+lượng><enter>
+Lấy email chỉ định
+:
+C lien gửi: RETR <số
+thứ tự>
+(trong đó <số thứ tự> thuộc danh
+sách đã liệt kê trong lệnh 
+STAT
+)
+Server gửi: +OK <some message><enter> <mail body> <enter>.<enter>
+43
+
+--- PAGE 43 ---
+POP3
+Để xóa email
+:
+C lient gửi: DELE <số thứ tự>
+Server gửi: +OK <some message> <enter>
+Tại thời điểm này
+, email vẫn chưa
+xóa mà chỉ ở tình trạng 
+bị đánh dấu xóa
+Để hủy đánh dấu xóa
+:
+C lien gửi: RSET
+Để kết thúc phiên làm việc, đóng kết nối TCP
+:
+Client dùng lệnh: QUIT <enter>
+44
+
+--- PAGE 44 ---
+IMAP 
+-INTERNET MESSAGE ACCESS PROTOCOL
+Ra đời năm 1986
+Ý t
+ư ởng: cho phép ng
+ười dùng xem email trên nhiều thiết 
+bị
+Giữ email trên server cho đến khi ng
+ư ời dùng xóa 
+bị 
+hạn chế dung l
+ư ợng hộp th
+ư
+45
+
+--- PAGE 45 ---
+IMAP
+Email lưu trữ trong IMAP server có thể
+được đánh dấu như 
+đã trả lời, đính flag,
+xóa, xem,…
+Các flag giúp một tài khoản IMAP được
+dùng trên nhiều 
+client. Nếu 1 tài khoản
+POP3 truy cập trên nhiều client sẽ 
+khó theo dõi tình trạng
+T ương tự POP3 như
+ng phức tạp và có cú pháp linh hoạt 
+hơn
+46
+
+--- PAGE 46 ---
+IMAP
+Kết nối đến server
+Lấy nội dung được yêu cầu từ người dùng và lưu đệm cục bộ, như danh sách mail mới, nội dung của những email được chọn lựa
+Xử lý các biên tập từ người dùng, như đánh dấu email là mail 
+đã đọc hay xóa…
+Ngắt kết nối
+47
+
+--- PAGE 47 ---
+IMAP
+Chạy trên port 143 và được định nghĩa
+trong RFC 1730
+SMTP và POP3 là các chuẩn của truyền thông email
+48
+
+--- PAGE 48 ---
+IMAP
+Tiến trình làm việc tương tự
+với POP
+:
+Chứng thực: 
+clien gửi login <username>
+<password>
+Nếu đúng thì server trả lời: OK
+LOGIN completed
+Lấy thông tin về mailbox: 
+clien gửi select
+inbox. 
+Server trả lời: * <số lượng mail>
+EXISTS
+Lấy một email: clien gửi fetch <số thứ tự>
+Server trả lời với nội dung email theo chuẩn RFC 822 và thông báo OK FETCH completed
+Xóa một email: clien gửi store <số thứ tự> +flags 
+\ deleted
+49
+
+--- PAGE 49 ---
+LỰA CHỌN POP3 HAY IMAP?
+50
+
+--- PAGE 50 ---
+Chọn POP nếu:
+M uốn truy cập mail chỉ từ một thiết bị
+Cần truy cập email thường xuyên dù có kết nối Internet hay không
+Không gian lưu trữ trên server hạn chế
+Chọn IMAP nếu:
+M uốn truy cập email từ nhiều thiết bị khác nhau
+Có kết nối Internet thường xuyên và tin cậy
+M uốn xem nhanh các email mới hoặc những email trên server
+Không gian lưu trữ cục bộ hạn chế
+Lo lắng về vấn đề dự phòng dữ liệu
+51
+
+--- PAGE 51 ---
+LẬP TRÌNH NHẬN MAIL BẰNG .NET
+Để kiểm tra chương trình,
+có thể cài đặt email reader như 
+Microsoft Outlook
+và cấu hình một vài
+tài khoản email
+Thực hiện việc gửi email từ tài khoản
+email đó
+Kiểm tra kết quả bằng chương trình mới
+viết
+53
+
+--- PAGE 52 ---
+LẬP TRÌNH NHẬN MAIL BẰNG .NET
+54
+
+--- PAGE 53 ---
+MAIL SERVER
+55
+
+--- PAGE 54 ---
+BÀI TẬPCài đặt các chương trình đã minh họa
+trong bài giảng bằng 
+ngôn
+ngữ C
+#
+56

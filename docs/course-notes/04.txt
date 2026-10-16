@@ -1,0 +1,311 @@
+
+--- PAGE 1 ---
+
+
+--- PAGE 2 ---
+▪
+▪
+▪
+▪
+▪
+▪
+2
+
+--- PAGE 3 ---
+▪
+▪
+▪
+▪
+▪
+3
+
+--- PAGE 4 ---
+4
+▪
+▪
+
+
+--- PAGE 5 ---
+5
+// Khởi tạo 1 Socket gửi nhận dữ liệu thông qua kết nối TCP
+s = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.TCP );
+
+
+--- PAGE 6 ---
+6
+
+
+--- PAGE 7 ---
+▪
+▪
+→
+7
+
+--- PAGE 8 ---
+▪
+▪
+▪
+8
+
+--- PAGE 9 ---
+9
+
+--- PAGE 10 ---
+▪
+▪
+▪
+▪
+10
+
+--- PAGE 11 ---
+▪
+▪
+11
+
+--- PAGE 12 ---
+▪
+▪
+▪
+▪
+▪
+12
+1 (byte 0) 1 (byte 1) 168 (byte 2) 192 (byte 3)
+
+--- PAGE 13 ---
+▪
+▪
+13
+
+--- PAGE 14 ---
+14
+
+
+--- PAGE 15 ---
+-
+ →
+-
+ →
+15
+
+--- PAGE 16 ---
+16
+
+--- PAGE 17 ---
+▪
+17
+
+--- PAGE 18 ---
+▪
+▪
+▪
+18
+
+--- PAGE 19 ---
+private void KiemTra()
+{
+IPAddress ip;
+String Ip4 = "127.0.0.1";
+String Ip5 = "999.0.0.1";
+MessageBox.Show(Ip4.ToString() + ": " + 
+IPAddress.TryParse(Ip4, out ip).ToString());
+MessageBox.Show(Ip5.ToString() + ": " + 
+IPAddress.TryParse(Ip5, out ip).ToString());
+}
+19
+
+--- PAGE 20 ---
+void ConvertToIPArray()
+{
+IPAddress Ip3 = new IPAddress(16885952);
+Byte[] b = new Byte[4];
+b = Ip3.GetAddressBytes();
+MessageBox.Show("Address: " + b[0] + "."
++ b[1] + "." + b[2] + "." + b[3])
+}
+20
+
+--- PAGE 21 ---
+▪
+ →
+▪
+▪
+▪
+21
+
+--- PAGE 22 ---
+22
+
+
+--- PAGE 23 ---
+23
+
+--- PAGE 24 ---
+private void CreateEndpoint()
+{
+// Tạo một địa chỉ IP
+IPAddress IPAdd = IPAddress.Parse("127.0.0.1");
+// Truyền vào cho hàm khởi tạo để tạo IPEndpoint
+IPEndPoint IPep = new IPEndPoint(IPAdd, 10000);
+}
+24
+
+--- PAGE 25 ---
+▪
+→
+▪
+25
+
+
+--- PAGE 26 ---
+26
+
+--- PAGE 27 ---
+▪
+→
+▪
+27
+
+
+--- PAGE 28 ---
+28
+
+--- PAGE 29 ---
+29
+
+--- PAGE 30 ---
+▪
+▪
+30
+
+--- PAGE 31 ---
+private void ShowIPs()
+{
+// Lấy tất cả địa chỉ IP của máy
+IPAddress[] add = Dns.GetHostAddresses(“MY-PC");
+foreach (IPAddress ip in add)
+{
+MessageBox.Show(ip.ToString());
+}
+//Cách 2
+//for (int i = 0; i < add.Length; i++)
+//{
+//    MessageBox.Show(add[i].ToString());
+//}
+}
+31
+
+--- PAGE 32 ---
+▪
+▪
+▪
+▪
+32
+
+--- PAGE 33 ---
+33
+
+
+--- PAGE 34 ---
+34
+
+
+--- PAGE 35 ---
+35
+
+--- PAGE 36 ---
+36
+
+--- PAGE 37 ---
+37
+
+
+--- PAGE 38 ---
+38
+private void ClientSend_Click(object sender, EventArgs e)
+{
+UdpClient udpClient = new UdpClient();
+//Lấy địa chỉ IP từ textbox và chuyển thành kiểu 
+IPAddress
+IPAddress ipadd = IPAddress.Parse(textBox1.Text);
+int port = Convert.ToInt32(textBox2.Text);
+IPEndPoint ipend = new IPEndPoint(ipadd, port);
+//Chuyển chuỗi dữ liệu nhập sang kiểu byte
+Byte[] sendBytes = 
+Encoding.UTF8.GetBytes(richTextBox1.Text);
+//Gởi dữ liệu đến IPEndPoint đã định nghĩa địa chỉ IP và 
+Port
+udpClient.Send(sendBytes, sendBytes.Length, ipend);
+//Xóa dữ liệu vừa gửi ở ô nhập
+richTextBox1.Text = "";
+}
+
+--- PAGE 39 ---
+39
+public void serverThread()
+{
+int port = Convert.ToInt32(textBox1.Text);
+UdpClient udpClient = new UdpClient(port);
+while (true)
+{
+IPEndPoint IpEnd = new IPEndPoint(IPAddress.Any, 0);
+//Đón nhận và đẩy dữ liệu nhận được vào mảng Byte
+Byte[] recvBytes = udpClient.Receive(ref IpEnd);
+string Data = Encoding.UTF8.GetString(recvBytes);
+string mess = IpEnd.Address.ToString() + ":" + 
+IpEnd.Port.ToString() + ": " + Data.ToString();
+// Gọi hàm hiển thị thông điệp nhận được lên màn hình
+InfoMessage(mess);
+}
+}
+
+--- PAGE 40 ---
+▪
+▪
+▪
+▪
+40
+
+--- PAGE 41 ---
+▪
+▪
+▪
+▪
+▪
+41
+
+--- PAGE 42 ---
+42
+
+
+--- PAGE 43 ---
+43
+
+--- PAGE 44 ---
+44
+
+--- PAGE 45 ---
+45
+
+
+--- PAGE 46 ---
+47
+
+--- PAGE 47 ---
+48
+
+--- PAGE 48 ---
+49
+
+--- PAGE 49 ---
+50
+
+--- PAGE 50 ---
+▪
+▪
+51
+
+--- PAGE 51 ---
+▪
+▪
+▪
+52

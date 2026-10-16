@@ -1,0 +1,381 @@
+
+--- PAGE 1 ---
+
+
+--- PAGE 2 ---
+▪
+▪
+▪
+▪
+▪
+▪
+Chương 4: Truyền thông với Web server 2
+
+--- PAGE 3 ---
+▪
+▪
+▪
+3
+
+
+--- PAGE 4 ---
+▪
+▪
+▪
+▪
+4
+
+
+--- PAGE 5 ---
+5
+➢
+➢
+➢
+
+
+--- PAGE 6 ---
+▪
+▪
+▪
+6
+
+--- PAGE 7 ---
+▪
+▪
+▪
+7
+
+--- PAGE 8 ---
+8
+
+
+--- PAGE 9 ---
+9
+
+
+--- PAGE 10 ---
+▪
+▪
+▪
+▪
+▪
+11
+
+--- PAGE 11 ---
+▪
+▪
+▪
+▪
+▪
+12
+
+--- PAGE 12 ---
+▪
+13
+
+--- PAGE 13 ---
+Application Layer
+2-14
+▪
+▪
+▪
+▪
+▪
+▪
+header
+body
+
+
+--- PAGE 14 ---
+15
+
+--- PAGE 15 ---
+16
+
+
+--- PAGE 16 ---
+▪
+using System.Threading;
+using System.Net;
+using System.Net.Sockets;
+using System.Text;
+using System.IO;
+17
+
+--- PAGE 17 ---
+▪
+18
+tcpclient = new TcpClient();
+tcpclient.Connect("127.0.0.1", 25);
+
+--- PAGE 18 ---
+▪
+19
+StreamReader sr = new StreamReader(tcpclient.GetStream());
+StreamWriter sw = new StreamWriter(tcpclient.GetStream());
+
+--- PAGE 19 ---
+▪
+data = "EHLO teacher.nt106";
+sw.WriteLine(data);
+sw.Flush(); 
+▪
+data = "AUTH LOGIN";
+sw.WriteLine(data);
+sw.Flush(); 
+20
+
+--- PAGE 20 ---
+▪
+static public string EncodeTo64(string toEncode)
+{
+byte[] toEncodeAsBytes = 
+System.Text.ASCIIEncoding.ASCII.GetBytes(toEncode);
+string returnValue = 
+System.Convert.ToBase64String(toEncodeAsBytes);
+return returnValue;
+}
+21
+
+--- PAGE 21 ---
+22
+
+--- PAGE 22 ---
+▪
+string username = EncodeTo64(mailfrom);
+sw.WriteLine(username);
+sw.Flush();
+▪
+sw.WriteLine(EncodeTo64(password));
+sw.Flush();
+23
+
+--- PAGE 23 ---
+▪
+data = "MAIL FROM:<" + mailfrom + ">";
+sw.WriteLine(data);
+sw.Flush(); 
+▪
+data = "RCPT TO:<" + mailto + ">";
+sw.WriteLine(data);
+sw.Flush(); 
+24
+
+--- PAGE 24 ---
+▪
+data = "DATA";
+sw.WriteLine(data);
+sw.Flush();
+▪
+data = "Subject: " + Subject;
+sw.WriteLine(data);
+sw.Flush();
+25
+
+--- PAGE 25 ---
+▪
+data = "QUIT";
+sw.WriteLine(data);
+sw.Flush();
+26
+
+--- PAGE 26 ---
+27
+
+
+--- PAGE 27 ---
+28
+
+
+--- PAGE 28 ---
+29
+
+
+--- PAGE 29 ---
+30
+private void sendEmail_click(object sender, EventArgs e)
+{
+using (SmtpClient smtpClient = new SmtpClient("127.0.0.1"))
+{
+string mailfrom = txtMailFrom.Text.ToString().Trim();
+string mailto = txtMailTo.Text.ToString().Trim();
+string password = txtPass.Text.ToString().Trim();
+var basicCredential = new NetworkCredential(mailfrom, 
+password);
+using (MailMessage message = new MailMessage())
+{
+MailAddress fromAddress = new MailAddress(mailfrom);
+smtpClient.UseDefaultCredentials = false;
+smtpClient.Credentials = basicCredential;
+
+--- PAGE 30 ---
+31
+message.From = fromAddress;
+message.Subject = txtSubject.Text.ToString().Trim() + 
+" From SMTPClient";
+// Set IsBodyHtml to true means you can send HTML 
+email.
+message.IsBodyHtml = true;
+message.Body = rtbBody.Text.ToString();
+message.To.Add(mailto);
+try
+{
+smtpClient.Send(message);
+}
+catch (Exception ex)
+{
+MessageBox.Show(ex.ToString());
+}
+}
+}
+}
+
+--- PAGE 31 ---
+32
+
+
+--- PAGE 32 ---
+33
+https://github.com/jstedfast/MailKit
+
+
+--- PAGE 33 ---
+▪
+▪
+34
+
+
+--- PAGE 34 ---
+▪
+▪
+35
+
+
+--- PAGE 35 ---
+36
+
+
+--- PAGE 36 ---
+37
+
+
+--- PAGE 37 ---
+▪
+ →
+▪
+▪
+▪
+38
+
+--- PAGE 38 ---
+▪
+▪
+▪
+▪
+▪
+39
+
+--- PAGE 39 ---
+▪
+▪
+40
+
+--- PAGE 40 ---
+▪
+▪
+▪
+41
+
+--- PAGE 41 ---
+▪
+42
+
+--- PAGE 42 ---
+▪
+▪
+▪
+▪
+▪
+▪
+43
+
+--- PAGE 43 ---
+▪
+▪
+▪
+▪
+▪
+▪
+44
+
+--- PAGE 44 ---
+▪
+▪
+▪
+ →
+45
+
+--- PAGE 45 ---
+▪
+▪
+▪
+46
+
+--- PAGE 46 ---
+▪
+▪
+▪
+▪
+47
+
+--- PAGE 47 ---
+▪
+▪
+48
+
+--- PAGE 48 ---
+▪
+▪
+▪
+▪
+▪
+▪
+▪
+▪
+▪
+▪
+▪
+49
+
+--- PAGE 49 ---
+50
+
+--- PAGE 50 ---
+▪
+▪
+▪
+▪
+▪
+▪
+▪
+▪
+▪
+▪
+51
+
+--- PAGE 51 ---
+▪
+▪
+▪
+53
+
+--- PAGE 52 ---
+54
+
+
+--- PAGE 53 ---
+55
+
+
+--- PAGE 54 ---
+56

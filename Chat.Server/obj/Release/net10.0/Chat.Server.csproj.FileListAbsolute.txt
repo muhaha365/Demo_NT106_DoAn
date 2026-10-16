@@ -1,0 +1,15 @@
+C:\Users\longlong\Documents\DaiHoc\HK1 2026-2027\LTMCB\WinFormsApp1\Chat.Server\bin\Release\net10.0\Chat.Server.deps.json
+C:\Users\longlong\Documents\DaiHoc\HK1 2026-2027\LTMCB\WinFormsApp1\Chat.Server\bin\Release\net10.0\Chat.Server.dll
+C:\Users\longlong\Documents\DaiHoc\HK1 2026-2027\LTMCB\WinFormsApp1\Chat.Server\bin\Release\net10.0\Chat.Server.pdb
+C:\Users\longlong\Documents\DaiHoc\HK1 2026-2027\LTMCB\WinFormsApp1\Chat.Server\bin\Release\net10.0\Chat.Core.dll
+C:\Users\longlong\Documents\DaiHoc\HK1 2026-2027\LTMCB\WinFormsApp1\Chat.Server\bin\Release\net10.0\Chat.Core.pdb
+C:\Users\longlong\Documents\DaiHoc\HK1 2026-2027\LTMCB\WinFormsApp1\Chat.Server\obj\Release\net10.0\Chat.Server.csproj.AssemblyReference.cache
+C:\Users\longlong\Documents\DaiHoc\HK1 2026-2027\LTMCB\WinFormsApp1\Chat.Server\obj\Release\net10.0\Chat.Server.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\longlong\Documents\DaiHoc\HK1 2026-2027\LTMCB\WinFormsApp1\Chat.Server\obj\Release\net10.0\Chat.Server.AssemblyInfoInputs.cache
+C:\Users\longlong\Documents\DaiHoc\HK1 2026-2027\LTMCB\WinFormsApp1\Chat.Server\obj\Release\net10.0\Chat.Server.AssemblyInfo.cs
+C:\Users\longlong\Documents\DaiHoc\HK1 2026-2027\LTMCB\WinFormsApp1\Chat.Server\obj\Release\net10.0\Chat.Server.csproj.CoreCompileInputs.cache
+C:\Users\longlong\Documents\DaiHoc\HK1 2026-2027\LTMCB\WinFormsApp1\Chat.Server\obj\Release\net10.0\Chat.Ser.DC654D9A.Up2Date
+C:\Users\longlong\Documents\DaiHoc\HK1 2026-2027\LTMCB\WinFormsApp1\Chat.Server\obj\Release\net10.0\Chat.Server.dll
+C:\Users\longlong\Documents\DaiHoc\HK1 2026-2027\LTMCB\WinFormsApp1\Chat.Server\obj\Release\net10.0\refint\Chat.Server.dll
+C:\Users\longlong\Documents\DaiHoc\HK1 2026-2027\LTMCB\WinFormsApp1\Chat.Server\obj\Release\net10.0\Chat.Server.pdb
+C:\Users\longlong\Documents\DaiHoc\HK1 2026-2027\LTMCB\WinFormsApp1\Chat.Server\obj\Release\net10.0\ref\Chat.Server.dll

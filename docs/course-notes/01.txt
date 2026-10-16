@@ -1,0 +1,690 @@
+
+--- PAGE 1 ---
+1
+Chương 1: Giới thiệu
+
+--- PAGE 2 ---
+▪
+▪
+▪
+▪
+▪
+▪
+▪
+▪
+▪
+▪
+Chương 1: Giới thiệu 2
+
+--- PAGE 3 ---
+▪
+▪
+▪
+▪
+▪
+▪
+Chương 1: Giới thiệu 3
+
+--- PAGE 4 ---
+▪
+▪
+▪
+▪
+Chương 1: Giới thiệu 4
+
+--- PAGE 5 ---
+▪
+▪
+Chương 1: Giới thiệu 5
+
+--- PAGE 6 ---
+▪
+▪
+▪
+▪
+▪
+Chương 1: Giới thiệu 6
+
+--- PAGE 7 ---
+Chương 1: Giới thiệu 7
+Private address: Địa chỉ dành riêng
+Public address: Địa chỉ dùng chung
+
+--- PAGE 8 ---
+Chương 1: Giới thiệu 8
+Địa chỉ mạng
+
+--- PAGE 9 ---
+Chương 1: Giới thiệu 9
+Địa chỉ broadcast
+
+--- PAGE 10 ---
+▪
+▪
+ →
+▪
+Chương 1: Giới thiệu 10
+
+--- PAGE 11 ---
+▪
+▪
+Chương 1: Giới thiệu 11
+
+--- PAGE 12 ---
+Số thứ
+tự
+Tên tầng Giao thức
+7 Application FTP
+6 Presentation XNS
+5 Session RPC
+4 Transport TCP
+3 Network IP
+2 Data link Ethernet frames
+1 Physical Điện áp
+Chương 1: Giới thiệu 12
+
+--- PAGE 13 ---
+Số thứ
+tự
+Tên tầng Giao thức
+4 Structured Information SOAP
+3 Message HTTP
+2 Stream TCP
+1 Packet IP
+Chương 1: Giới thiệu 13
+
+--- PAGE 14 ---
+▪
+▪
+ →
+Chương 1: Giới thiệu 14
+
+--- PAGE 15 ---
+▪
+▪
+→
+▪
+▪
+Chương 1: Giới thiệu 15
+
+--- PAGE 16 ---
+Số thứ tự port Giao thức
+20 FTP (data)
+21 FTP (control)
+25 SMTP (email, outgoing)
+53 DNS  (domain names)
+80 HTTP (Web)
+110 POP3 (email, incoming)
+119 NNTP (news)
+143 IMAP (email, incoming)
+Chương 1: Giới thiệu 16
+
+--- PAGE 17 ---
+▪
+▪
+▪
+Chương 1: Giới thiệu 17
+
+--- PAGE 18 ---
+RFC Document Giao thức
+RFC 821 SMTP (email, outgoing)
+RFC 954 WHOIS
+RFC 959 FTP (uploading and downloading)
+RFC 1939 POP3 (email, incoming)
+RFC 2616 HTTP (Web browsing)
+RFC 793 TCP (runs under all above 
+protocols)
+RFC 792 ICMP (ping)
+RFC 791 IP (runs under TCP and ICMP)
+Chương 1: Giới thiệu 18
+
+--- PAGE 19 ---
+▪
+▪
+▪
+Chương 1: Giới thiệu 19
+
+--- PAGE 20 ---
+▪
+▪
+▪
+▪
+Chương 1: Giới thiệu 20
+
+--- PAGE 21 ---
+▪
+▪
+Chương 1: Giới thiệu 21
+
+--- PAGE 22 ---
+▪
+▪
+▪
+▪
+Chương 1: Giới thiệu 22
+
+--- PAGE 23 ---
+▪
+▪
+▪
+▪
+▪
+▪
+▪
+Chương 1: Giới thiệu 23
+
+--- PAGE 24 ---
+▪ Tránh sự trùng lắp khi đặt tên lớp
+▪ Quản lý mã được dễ dàng
+▪ Giảm bớt sự phức tạp khi chạy với các ứng dụng khác 
+namespace Tên_Namespace 
+{
+//Khai báo các lớp…
+} 
+▪ Có thể khai báo các namespace, class… bên trong
+namespace khác.
+Chương 1: Giới thiệu 24
+
+--- PAGE 25 ---
+namespace Sample
+{
+public class A
+{
+}
+public class B
+{
+}
+}
+Chương 1: Giới thiệu 25
+
+--- PAGE 26 ---
+namespace  Sample_2
+{
+public class A
+{
+}
+namespace Sample_3
+{
+//….
+}
+}
+Chương 1: Giới thiệu 26
+
+--- PAGE 27 ---
+▪ Khai báo:
+class Tên_lớp
+{
+//khai báo các thành phần…       
+}
+▪ Ví dụ:
+class KhachHang
+{
+private int mMaKhachHang;
+private string mTenKhachHang;       
+}
+Chương 1: Giới thiệu 27
+
+--- PAGE 28 ---
+class KhachHang
+{ 
+//Các thành phần 
+//Các phương thức 
+public  void  In()
+{
+//Các câu lệnh…
+}   
+}
+Chương 1: Giới thiệu 28
+
+--- PAGE 29 ---
+▪ Thành phần của lớp 
+- Khai báo với từ khóa static 
+class KhachHang
+{
+private static int mMaKH;
+public static string mTenKH;
+public static void In() {    
+// Các câu lệnh
+}       
+}
+Chương 1: Giới thiệu 29
+
+--- PAGE 30 ---
+▪ Sử dụng: TênLớp.TênThànhPhần
+▪ Ví dụ: 
+KhachHang.mMaKH = 1;  
+KhachHang.In();
+Chương 1: Giới thiệu 30
+
+--- PAGE 31 ---
+class KhachHang
+{
+private int mMaKH;
+public string mTenKH;
+public void In() {    
+// Các câu lệnh
+}       
+}
+▪ Sử dụng: TênĐốiTượng.TênThànhPhần
+▪ Ví dụ: 
+KhachHang objKH = new KhachHang();
+objKH.In() ; objKH.mTenKH = “ABC”;
+Chương 1: Giới thiệu 31
+
+--- PAGE 32 ---
+▪Phương thức đặc biệt trong lớp
+▪Được gọi khi đối tượng được tạo
+▪Dùng để khởi dựng đối tượng
+▪Cùng tên với tên lớp
+▪Không có giá trị trả về
+▪Constructor có thể có tham số
+Chương 1: Giới thiệu 32
+
+--- PAGE 33 ---
+class KhachHang  
+{
+private int mMaKH;
+private string mTenKH; 
+public KhachHang()
+{ 
+mMaKH = 0;
+mTenKH = “ABC”;
+}
+} 
+Chương 1: Giới thiệu 33
+
+--- PAGE 34 ---
+class KhachHang  
+{
+private int mMaKH;
+private string mTenKH; 
+public KhachHang(int MaKH, string TenKH) 
+{ 
+mMaKH = MaKH;
+mTenKH = TenKH;
+}
+} 
+Chương 1: Giới thiệu 34
+
+--- PAGE 35 ---
+▪ Gọi một lần duy nhất trước khi đối tượng được tạo
+▪ Không có tham số
+class KhachHang
+{
+public KhachHang() {
+mMaKH = 0; 
+mTenKH = “ABC”;
+}
+static KhachHang() 
+{ 
+// Các câu lệnh…
+}
+} 
+Chương 1: Giới thiệu 35
+
+--- PAGE 36 ---
+▪ Sử dụng khi các thành phần trong lớp là static 
+▪ Không cần thiết tạo đối tượng cho lớp
+class KhachHang  
+{
+private static int mMaKH;
+public static string mTenKH;
+public static void In() {    
+// Các câu lệnh
+}       
+private KhachHang() 
+{
+}
+} 
+Chương 1: Giới thiệu 36
+
+--- PAGE 37 ---
+▪
+▪
+Chương 1: Giới thiệu 37
+
+--- PAGE 38 ---
+public void In(int s) 
+{
+// Các câu lệnh
+}
+Chương 1: Giới thiệu 38
+
+--- PAGE 39 ---
+▪
+Chương 1: Giới thiệu 39
+
+--- PAGE 40 ---
+▪
+Chương 1: Giới thiệu 40
+
+--- PAGE 41 ---
+▪
+▪
+▪
+▪
+▪
+▪
+Chương 1: Giới thiệu 41
+
+--- PAGE 42 ---
+▪
+▪
+Chương 1: Giới thiệu 42
+
+--- PAGE 43 ---
+▪
+▪
+Chương 1: Giới thiệu 43
+
+--- PAGE 44 ---
+▪
+▪
+Chương 1: Giới thiệu 44
+
+--- PAGE 45 ---
+▪
+▪
+Chương 1: Giới thiệu 45
+
+--- PAGE 46 ---
+▪
+▪
+▪
+Chương 1: Giới thiệu 46
+
+--- PAGE 47 ---
+▪
+▪
+▪
+▪
+ int[6] array1;
+Chương 1: Giới thiệu 47
+DataType[số lượng phần tử] ArrayName;
+
+--- PAGE 48 ---
+struct structEx
+{
+public int 
+strIntDataMember;
+private string 
+strStrDataMember;
+public void 
+structMethod1()
+{
+//các phát biểu
+}
+}
+Chương 1: Giới thiệu 48
+•
+•
+•
+•
+
+
+--- PAGE 49 ---
+public class Holiday
+{
+public enum WeekDays
+{
+Monday,
+Tuesday,
+Wednesday,
+Thursday,
+Friday
+}
+public void GetWeekDays (String EmpName, WeekDays DayOff)
+{
+//Process WeekDays
+}
+static void Main()
+{
+Holiday myHoliday = new Holiday();
+myHoliday.GetWeekDays (“Richie”, Holiday.WeekDays.Wednesday);
+}
+}
+Chương 1: Giới thiệu 49
+
+--- PAGE 50 ---
+▪ Cho phép khai báo 1 lớp mới được dẫn xuất từ 1 lớp 
+đã có
+▪ Sử dụng lại các đoạn mã đã viết
+▪ Hỗ trợ đơn thừa kế
+▪ Không cho phép đa thừa kế
+▪ Cho phép thực thi nhiều interface
+Chương 1: Giới thiệu 50
+
+--- PAGE 51 ---
+class Software
+{
+private int m_z;
+public int m_v;
+protected int m_x;
+public Software()
+{
+m_x = 100;
+}
+public Software(int y)
+{
+m_x = y;
+}
+}
+Chương 1: Giới thiệu 51
+
+--- PAGE 52 ---
+Chương 1: Giới thiệu 52
+
+--- PAGE 53 ---
+class IBMSoftware : Software
+{
+public IBMSoftware(int y) : base(y) {
+Console.WriteLine(m_x);
+}
+public IBMSoftware(string s, int f) : this(f) 
+{
+Console.WriteLine(s);
+}
+}
+Chương 1: Giới thiệu 53
+
+--- PAGE 54 ---
+static void Main(string[] args)
+{ 
+MicrosoftSoftware objMS = new 
+MicrosoftSoftware();
+IBMSoftware objIBM1 = new IBMSoftware(50);
+IBMSoftware objIBM2 = new IBMSoftware("test", 
+75);
+Console.ReadLine();
+}
+Chương 1: Giới thiệu 54
+
+--- PAGE 55 ---
+Từ khóa  sealed: Lớp không cho phép kế thừa 
+public sealed class A
+{
+}
+public class B : A  
+{
+}
+Lớp B không được phép kế thừa lớp A.
+Chương 1: Giới thiệu 55
+
+--- PAGE 56 ---
+class Animal
+{
+public Animal()
+{
+Console.WriteLine("Animal constructor");
+}
+public void Talk()
+{
+Console.WriteLine("Animal talk");
+}
+}
+Chương 1: Giới thiệu 56
+
+--- PAGE 57 ---
+class Dog : Animal
+{
+public Dog() 
+{
+Console.WriteLine("Dog constructor");
+}
+public new void Talk()
+{
+Console.WriteLine("Dog talk");
+}
+}
+Chương 1: Giới thiệu 57
+
+--- PAGE 58 ---
+class Test
+{
+static void Main(string[] args)
+{
+Animal a1 = new Animal();
+a1.Talk();
+Dog d1 = new Dog();
+d1.Talk();
+}
+}
+Chương 1: Giới thiệu 58
+
+--- PAGE 59 ---
+class Animal
+{
+public Animal()
+{
+Console.WriteLine("Animal constructor");
+}
+public virtual void Talk()
+{
+Console.WriteLine("Animal talk");
+}
+}
+Chương 1: Giới thiệu 59
+
+--- PAGE 60 ---
+class Dog : Animal
+{
+public Dog() {
+Console.WriteLine("Dog constructor");
+}
+public override void Talk()
+{
+Console.WriteLine("Dog talk");
+}
+}
+Chương 1: Giới thiệu 60
+
+--- PAGE 61 ---
+class Test
+{
+static void Main(string[] args)
+{
+Animal objA = new Animal();
+Dog objD = new Dog();
+objA = objD ; 
+objA.Talk();
+}
+}
+Chương 1: Giới thiệu 61
+
+--- PAGE 62 ---
+▪ Không được tạo đối tượng
+▪ Có thể định nghĩa các phương thức
+▪ Có thể mở rộng từ lớp dẫn xuất
+▪ Dùng để làm lớp cơ sở
+▪ Có thể  thực thi  interface
+Chương 1: Giới thiệu 62
+
+--- PAGE 63 ---
+abstract class Shape 
+{
+protected float m_Height = 5;
+protected float m_Width = 10;
+public abstract void CalculateArea();
+public abstract void CalculateCircumference();
+public  void PrintHeight() {
+Console.WriteLine("Height = 
+{0}",m_Height); 
+}
+public void PrintWidth() {
+Console.WriteLine("Width = 
+{0}",m_Width); 
+}
+}
+Chương 1: Giới thiệu 63
+
+--- PAGE 64 ---
+class Rectangle:Shape
+{
+public Rectangle() {
+m_Height = 20;
+m_Width = 30;
+}
+public override void CalculateArea() {
+Console.WriteLine("Area : {0}", m_Height * m_Width 
+);  
+}
+public override void CalculateCircumference() {
+Console.WriteLine("Circumference =  
+{0}",(m_Height+m_Width)*2); 
+}
+}
+Chương 1: Giới thiệu 64
+
+--- PAGE 65 ---
+class Test
+{
+static void Main(string[] args)
+{
+Rectangle objRec =  new Rectangle();
+objRec.CalculateArea(); 
+objRec.CalculateCircumference();    
+}
+}
+Chương 1: Giới thiệu 65
+
+--- PAGE 66 ---
+▪ Không được tạo đối tượng
+▪ Không thể định nghĩa các phương thức
+▪ Lớp thực thi interface phải thực thi tất cả các phương 
+thức của interface
+▪ Interface có thể được kế thừa các interface khác
+Chương 1: Giới thiệu 66
+
+--- PAGE 67 ---
+interface ITest
+{
+void Print();
+}
+class Base : ITest
+{
+public void Print()
+{
+Console.WriteLine("Print method called");
+}
+}
+Chương 1: Giới thiệu 67
+
+--- PAGE 68 ---
+static void Main(string[] args)
+{
+Base obj = new Base();
+obj.Print(); 
+//Gọi phương thức Print() bằng  interface  ITest
+ITest ib = (ITest)obj ;
+ib.Print(); 
+//Gọi phương thức Print() bằng cách ép kiểu Interface ITest về 
+lớp Base
+Base ojB = (Base)ib;
+ojB.Print(); 
+}
+Chương 1: Giới thiệu 68
+
+--- PAGE 69 ---
+▪
+▪
+Chương 1: Giới thiệu 69

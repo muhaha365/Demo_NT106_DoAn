@@ -1,8 +1,1 @@
-**/bin/
-**/obj/
 .vs/
-artifacts/
-*.user
-*.pfx
-server-data/
-docs/course-notes/

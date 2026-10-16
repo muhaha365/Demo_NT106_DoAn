@@ -1,0 +1,9 @@
+C:\Users\longlong\Documents\DaiHoc\HK1 2026-2027\LTMCB\WinFormsApp1\artifacts\publish\UITChat\WinFormsApp1.exe
+C:\Users\longlong\Documents\DaiHoc\HK1 2026-2027\LTMCB\WinFormsApp1\artifacts\publish\UITChat\WinFormsApp1.dll
+C:\Users\longlong\Documents\DaiHoc\HK1 2026-2027\LTMCB\WinFormsApp1\artifacts\publish\UITChat\WinFormsApp1.deps.json
+C:\Users\longlong\Documents\DaiHoc\HK1 2026-2027\LTMCB\WinFormsApp1\artifacts\publish\UITChat\WinFormsApp1.runtimeconfig.json
+C:\Users\longlong\Documents\DaiHoc\HK1 2026-2027\LTMCB\WinFormsApp1\artifacts\publish\UITChat\WinFormsApp1.pdb
+C:\Users\longlong\Documents\DaiHoc\HK1 2026-2027\LTMCB\WinFormsApp1\artifacts\publish\UITChat\Chat.Core.dll
+C:\Users\longlong\Documents\DaiHoc\HK1 2026-2027\LTMCB\WinFormsApp1\artifacts\publish\UITChat\Chat.Server.dll
+C:\Users\longlong\Documents\DaiHoc\HK1 2026-2027\LTMCB\WinFormsApp1\artifacts\publish\UITChat\Chat.Server.pdb
+C:\Users\longlong\Documents\DaiHoc\HK1 2026-2027\LTMCB\WinFormsApp1\artifacts\publish\UITChat\Chat.Core.pdb

@@ -1,0 +1,146 @@
+--- PAGE 1 ---
+CHƯƠNG 3B LẬP TRÌNH ĐA 
+LUỒNG
+(MULTITHREADING)LẬP TRÌNH MẠNG CĂN BẢN
+
+--- PAGE 2 ---
+NỘI DUNG
+Khái niệm về Đa luồng
+Lợi ích của Lập trình Đa luồng
+Đặc điểm, cách thức
+khai báo Đa luồng trong C#
+Dem
+o
+2
+
+--- PAGE 3 ---
+KHÁI NIỆM VỀ THREAD
+Thread là luồng (còn gọi là tiểu trình)
+Cho phép chương trình thực hiện đồng thời nhiều tác vụ
+Giúp quá trình tương tác với người dùng không bị gián đoạn
+Là kĩ thuật không thể thiếu trong các ứng dụng mạng
+3
+
+--- PAGE 4 ---
+THREAD VÀ PROCESS
+4
+
+--- PAGE 5 ---
+THREAD
+7
+
+--- PAGE 6 ---
+THREAD 
+– VÍ DỤ
+00000000000000111111111111111111111111111111111111111111111111111110000000000000000000000000000000000000000000000000000011111111111111111111111111111111111111111111111000000000000000000000000000000000Press any key to continue . . .
+8
+
+--- PAGE 7 ---
+TRUYỀN THAM SỐ CHO THREAD
+Chỉ n hận một tham số kiểu object
+Trong phương thức callback, cần phải ép kiểu để sử dụng được đúng kiểu dữ liệu của tham số
+9
+
+--- PAGE 8 ---
+10
+
+--- PAGE 9 ---
+VÒNG ĐỜI
+CỦA THREAD
+ThreadState
+: 
+- Unstarted
+- Running
+- NotRunning
+- Stopped
+11
+
+--- PAGE 10 ---
+THREADPRIORITY
+ThreadPriority
+: 
+Xác định mức độ ưu tiên sẽ được thực thi so với các thread khác
+Mỗi thread khi được tạo ra mang giá trị là Normal
+Các giá trị gồm:  Lowest, BelowNormal, Normal, AboveNormal và Highest
+12
+
+--- PAGE 11 ---
+CÁC PHƯƠNG THỨC THÔNG DỤNG CỦA THREAD
+Abort
+(): hệ thống sẽ 
+đưa ra một ngoại lệ 
+ThreadAbortException
+để kết thúc thread
+,ThreadState sẽ 
+chuyển sang giá trị Stopped.
+await (): tạm dừng việc thực thi của Thread vô thời hạn đến khi được yêu cầu chạy tiếp tục với phương thức Resume
+()
+Sleep
+(): dừng thread 
+hiện tại
+trong một khoảng thời gian 
+(milisecond, khi đó thread sẽ chuyển sang trạng thái WaitSleepJoin
+)
+13
+
+--- PAGE 12 ---
+14
+
+--- PAGE 13 ---
+KẾT QUẢ11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+15
+
+--- PAGE 14 ---
+CÁC PHƯƠNG THỨC THÔNG DỤNG CỦA THREAD
+Join (): phương thức 
+dùng trong trường hợp muốn thực 
+hiện một tác vụ nào đó sau khi thread đã kết thúc. Phương thức này chỉ dùng sau khi bạn đã chạy Thread. Các tác vụ nằm phía dưới lệnh gọi Join() của một Thread chỉ được thực thi sau khi Thread đó 
+đã hoàn tất
+16
+
+--- PAGE 15 ---
+17
+
+--- PAGE 16 ---
+KẾT QUẢ000000000000000000000000000000001111111111111111111111111111111111111111111111111110000000000000000000000000000000000000000000000000000011111111111111111111111111111111111111111111111110000000000000002222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222
+18
+
+--- PAGE 17 ---
+BÀI TẬP
+19
+Nhập vào 1 số n (số nguyên d
+ư ơng)
+Thêm 2 cách thức
+đếm, sao cho có thể đếm lúc 
+nào cũng đ
+ư ợc (Song song, hoặc 1 tr
+ư ớc
+1 sau)
+Nút sẽ bị tắt cho đến khi đếm xong
+2 cách thức
+đếm:
+-Cách 1: đếm tăng dần 1 đ
+ơ n vị
+-Cách 2: đếm tăng dần 2 đ
+ơ n vị
+
+--- PAGE 18 ---
+BÀI TẬP (GIAO DIỆN MINH HỌA)
+20
+
+--- PAGE 19 ---
+BÀI TẬP (GIAO DIỆN MINH HỌA)
+21
+
+--- PAGE 20 ---
+BÀI TẬP (GIAO DIỆN MINH HỌA)
+22
+
+--- PAGE 21 ---
+BÀI TẬP (GỢI Ý)
+23
+SửdụngCheckForIllegalCrossThreadCalls 
+= false
+;
+Để fix lỗi Window
+Form báo lỗi chạy Thread

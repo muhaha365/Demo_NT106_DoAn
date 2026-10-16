@@ -1,0 +1,360 @@
+
+--- PAGE 1 ---
+1
+
+--- PAGE 2 ---
+▪
+▪
+▪
+▪
+▪
+▪
+▪
+▪
+Chương 2: I/O trong .NET 2
+
+--- PAGE 3 ---
+▪
+▪
+▪
+Chương 2: I/O trong .NET 3
+
+--- PAGE 4 ---
+▪
+▪
+▪
+ →
+▪
+Chương 2: I/O trong .NET 4
+
+--- PAGE 5 ---
+▪
+Chương 2: I/O trong .NET 5
+
+
+--- PAGE 6 ---
+▪
+▪
+▪
+▪
+Chương 2: I/O trong .NET 6
+
+--- PAGE 7 ---
+▪
+▪
+Chương 2: I/O trong .NET 7
+
+--- PAGE 8 ---
+▪
+▪
+▪
+▪
+▪
+Chương 2: I/O trong .NET 8
+
+--- PAGE 9 ---
+▪
+▪
+FileStream fs;
+byte[] fileContents;
+AsyncCallback callback;
+delegate void InfoMessageDel(String info);
+Chương 2: I/O trong .NET 9
+
+--- PAGE 10 ---
+▪
+private void btnReadAsync_Click(object sender, 
+EventArgs e)
+{
+openFileDialog.ShowDialog();
+callback = new AsyncCallback(fs_StateChanged);
+fs = new FileStream(openFileDialog.FileName, 
+FileMode.Open, FileAccess.Read, FileShare.Read, 
+4096, true);
+fileContents = new Byte[fs.Length];
+fs.BeginRead(fileContents, 0, (int)fs.Length, 
+callback, null);
+}
+▪
+Chương 2: I/O trong .NET 10
+
+--- PAGE 11 ---
+▪
+private void fs_StateChanged(IAsyncResult asyncResult)
+{
+if (asyncResult.IsCompleted)
+{
+string s = 
+Encoding.UTF8.GetString(fileContents);
+InfoMessage(s);
+fs.Close();
+}
+}
+Chương 2: I/O trong .NET 11
+
+--- PAGE 12 ---
+▪
+private void btnReadSync_Click(object sender, 
+EventArgs e)
+{
+openFileDialog.ShowDialog();
+Thread thdSyncRead = new Thread(new
+ThreadStart(syncRead));
+thdSyncRead.Start();
+}
+Chương 2: I/O trong .NET 12
+
+--- PAGE 13 ---
+public void syncRead()
+{
+FileStream fs;
+try
+{
+fs = new FileStream(openFileDialog.FileName, 
+FileMode.OpenOrCreate);
+}
+catch (Exception ex)
+{
+MessageBox.Show(ex.Message);
+return;
+}
+Chương 2: I/O trong .NET 13
+
+--- PAGE 14 ---
+fs.Seek(0, SeekOrigin.Begin);
+byte[] fileContents = new
+byte[fs.Length];
+fs.Read(fileContents, 0, (int)fs.Length);
+string s = 
+Encoding.UTF8.GetString(fileContents);
+InfoMessage(s);
+fs.Close();
+}
+Chương 2: I/O trong .NET 14
+
+--- PAGE 15 ---
+public void InfoMessage(String info)
+{
+if (tbResults.InvokeRequired)
+{
+InfoMessageDel method = new
+InfoMessageDel(InfoMessage);
+tbResults.Invoke(method, new object[] { 
+info });
+return;
+}
+tbResults.Text = info;
+}
+Chương 2: I/O trong .NET 15
+
+--- PAGE 16 ---
+Chương 2: I/O trong .NET 16
+
+--- PAGE 17 ---
+▪
+▪
+▪
+Chương 2: I/O trong .NET 17
+
+--- PAGE 18 ---
+▪
+▪
+Chương 2: I/O trong .NET 18
+
+--- PAGE 19 ---
+▪
+Chương 2: I/O trong .NET 19
+
+
+--- PAGE 20 ---
+Chương 2: I/O trong .NET 20
+
+
+--- PAGE 21 ---
+Chương 2: I/O trong .NET 21
+
+--- PAGE 22 ---
+Chương 2: I/O trong .NET 22
+
+
+--- PAGE 23 ---
+Chương 2: I/O trong .NET 23
+
+
+--- PAGE 24 ---
+Phương thức hoặc
+thuộc tính
+Mục đích
+Constructor Khởi tạo một thực thể mới của BinaryWriter
+Close Đóng BinaryWriter hiện hành và stream 
+liên quan
+Seek Định vị trí con trỏ trên stream hiện hành
+Write Ghi giá trị vào stream hiện hành
+Write7BitEncodedIn
+t
+Ghi giá trị số nguyên 32 bit (dạng nén) vào 
+stream hiện hành
+Chương 2: I/O trong .NET 24
+
+--- PAGE 25 ---
+▪
+▪
+Chương 2: I/O trong .NET 25
+
+--- PAGE 26 ---
+▪
+▪
+Chương 2: I/O trong .NET 26
+
+--- PAGE 27 ---
+Chương 2: I/O trong .NET 27
+
+--- PAGE 28 ---
+Chương 2: I/O trong .NET 28
+
+--- PAGE 29 ---
+Chương 2: I/O trong .NET 29
+
+--- PAGE 30 ---
+Chương 2: I/O trong .NET 30
+
+--- PAGE 31 ---
+Chương 2: I/O trong .NET 31
+
+--- PAGE 32 ---
+Chương 2: I/O trong .NET 32
+
+--- PAGE 33 ---
+Chương 2: I/O trong .NET 33
+
+--- PAGE 34 ---
+Chương 2: I/O trong .NET 34
+Simple Object Access Protocol (SOAP)
+
+--- PAGE 35 ---
+Chương 2: I/O trong .NET 35
+
+
+--- PAGE 36 ---
+▪
+▪
+Chương 2: I/O trong .NET 36
+
+--- PAGE 37 ---
+Chương 2: I/O trong .NET 37
+
+--- PAGE 38 ---
+Chương 2: I/O trong .NET 38
+
+--- PAGE 39 ---
+Chương 2: I/O trong .NET 39
+
+
+--- PAGE 40 ---
+▪
+▪
+Chương 2: I/O trong .NET 40
+
+--- PAGE 41 ---
+▪
+▪
+▪
+Chương 2: I/O trong .NET 41
+
+--- PAGE 42 ---
+Chương 2: I/O trong .NET 42
+
+--- PAGE 43 ---
+Chương 2: I/O trong .NET 43
+
+--- PAGE 44 ---
+Phương thức
+hoặc thuộc 
+tính
+Mục đích
+Constructor Khởi tạo một thực thể mới của XmlSerializer 
+Deserialize Deserialize một tài liệu XML
+Serialize Serialize một đối tượng thành tài liệu XML
+FromTypes Trả về một mảng các đối tượng XmlSerializer 
+được tạo từ một mảng các kiểu
+CanDeserialize Lấy ra giá trị cho biết XmlSerializer có thể
+deserialize một tài liệu XML nào đó được hay 
+không.
+Chương 2: I/O trong .NET 44
+
+--- PAGE 45 ---
+Chương 2: I/O trong .NET 45
+
+
+--- PAGE 46 ---
+▪
+▪
+▪
+Chương 2: I/O trong .NET 46
+
+--- PAGE 47 ---
+▪
+▪
+▪
+▪
+Chương 2: I/O trong .NET 47
+
+--- PAGE 48 ---
+Chương 2: I/O trong .NET 48
+
+--- PAGE 49 ---
+Chương 2: I/O trong .NET 49
+
+--- PAGE 50 ---
+Chương 2: I/O trong .NET 50
+
+--- PAGE 51 ---
+Chương 2: I/O trong .NET 51
+
+--- PAGE 52 ---
+Chương 2: I/O trong .NET 52
+
+--- PAGE 53 ---
+▪
+▪
+▪
+▪
+Chương 2: I/O trong .NET 53
+
+--- PAGE 54 ---
+▪
+▪
+▪
+▪
+Chương 2: I/O trong .NET 54
+
+--- PAGE 55 ---
+▪
+Chương 2: I/O trong .NET 55
+
+--- PAGE 56 ---
+▪
+Chương 2: I/O trong .NET 56
+
+--- PAGE 57 ---
+▪
+▪
+Chương 2: I/O trong .NET 57
+
+--- PAGE 58 ---
+Chương 2: I/O trong .NET 58
+
+--- PAGE 59 ---
+Chương 2: I/O trong .NET 59
+
+--- PAGE 60 ---
+Chương 2: I/O trong .NET 60
+
+
+--- PAGE 61 ---
+Chương 2: I/O trong .NET 61
+
+
+--- PAGE 62 ---
+▪
+Chương 2: I/O trong .NET 62

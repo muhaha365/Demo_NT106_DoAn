@@ -1,0 +1,552 @@
+--- PAGE 1 ---
+BẢO VỆ DỮ LIỆU 
+MÃ HÓA
+
+--- PAGE 2 ---
+Nội dung
+Giới thiệu
+Phân tích mã
+Các thuật ngữ
+Mã hóa bất đối xứng – khóa công khai
+RSA
+Mã hóa đối xứng
+Chống tấn công
+2
+
+--- PAGE 3 ---
+Giới thiệu
+Nếu không có mã hóa thì bất kỳ ai cũng có thể 
+dễ dàng truy cập vào đường truyền dữ liệu 
+giữa các máy tính để xem, sửa chữa,…
+Bảo mật là vấn đề hết sức quan trọng trong 
+giao dịch thương mại và nhiều kiểu trao đổi 
+thông tin khác
+3
+
+--- PAGE 4 ---
+Giới thiệu
+Nội dung gồm 3 phần:
+• Mô tả các phương pháp bẻ khóa bảo mật và chỉ ra 
+bảo mật như thế nào là yếu
+• Mã hóa bất đối xứng: phương pháp được ứng 
+dụng nhiều nhất
+• Mã hóa đối xứng: phương pháp bổ sung, kết hợp 
+với các kiểu khác để tăng cường hiệu quả
+4
+
+--- PAGE 5 ---
+Các thuật ngữ
+Plain text (bản rõ): dữ liệu chưa mã hóa
+Cipher text (bản mã): dữ liệu đã được mã hóa
+Key: dữ liệu dùng để mã hóa hoặc giải mã
+Cryptographic algorithm hoặc Cipher: giải thuật 
+mã hóa hoặc giải mã
+Strength: độ khó khi bẻ khóa 
+5
+
+--- PAGE 6 ---
+7
+Mô hình hệ mã hóa đối xứng
+Khóa bí mật dùng chung
+bởi bên gửi và bên nhận
+Khóa bí mật dùng chung
+bởi bên gửi và bên nhận
+Giải thuật mã hóa
+Giải thuật giải mã
+Nguyên bản
+đầu vào
+Nguyên bản
+đầu ra
+Bản mã
+truyền đi
+Mã hóa
+Y = EK(X)
+Giải mã
+X = DK(Y)
+
+--- PAGE 7 ---
+8
+Mô hình hệ mã hóa đối xứng 
+Gồm có 5 thành phần
+• Bản rõ
+• Giải thuật mã hóa
+• Khóa bí mật
+• Bản mã
+• Giải thuật giải mã
+Độ an toàn phụ thuộc vào bí mật của khóa, 
+không phụ thuộc vào bí mật của giải thuật
+
+--- PAGE 8 ---
+9
+Phá mã
+Là nỗ lực giải mã văn bản đã được mã hóa không 
+biết trước khóa bí mật
+Có hai phương pháp phá mã
+• Vét cạn
+Thử tất cả các khóa có thể
+• Thám mã
+Khai thác những nhược điểm của giải thuật
+Dựa trên những đặc trưng chung của nguyên bản hoặc một 
+số cặp nguyên bản - bản mã mẫu
+
+--- PAGE 9 ---
+10
+Về lý thuyết có thể thử tất cả các giá trị khóa cho 
+đến khi tìm thấy nguyên bản từ bản mã
+Dựa trên giả thiết có thể nhận biết được nguyên 
+bản cần tìm
+Thực tế không khả khi nếu độ dài khóa lớn
+Phương pháp phá mã vét cạn
+
+--- PAGE 10 ---
+13
+Chuẩn mã hóa dữ liệu 
+DES (Data Encryption Standard) được công nhận 
+chuẩn năm 1977 
+Phương thức mã hóa được sử dụng rộng rãi nhất
+Tên giải thuật là DEA (Data Encryption Algorithm)
+Kích thước khối: 64 bit
+Kích thước khóa: 56 bit
+Số vòng: 16
+Từng gây nhiều tranh cãi về độ an toàn
+
+--- PAGE 11 ---
+14
+Phá mã DES
+Khóa 56 bit có 256 = 7,2 x 1016 giá trị có thể
+Phương pháp vét cạn tỏ ra không thực tế
+Tốc độ tính toán cao có thể phá được khóa
+• 1997: 70000 máy tính phá mã DES trong 96 ngày
+• 1998: Electronic Frontier Foundation (EFF) phá mã DES 
+bằng máy chuyên dụng (250000$) trong < 3 ngày
+• 1999: 100000 máy tính phá mã trong 22 giờ
+Vấn đề còn phải nhận biết được nguyên bản
+Nếu cần an toàn hơn: 3DES hay chuẩn mới AES
+
+--- PAGE 12 ---
+15
+Hệ mã hóa 3DES
+Sử dụng 3 khóa và chạy 3 lần giải thuật DES
+• Mã hóa: C = EK3[DK2[EK1[p]]]
+• Giải mã: p = DK1[EK2[DK3[C]]]
+Độ dài khóa thực tế là 168 bit
+• Không tồn tại K4 = 56 sao cho C = EK4(p)
+Vì sao 3 lần? tránh tấn công "gặp nhau ở giữa"
+• C = EK2(EK1(p)) X = EK1(p) = DK2(C)
+• Nếu biết một cặp (p, C)
+Mã hóa p với 256 khóa và giải mã C với 256 khóa
+So sánh tìm ra K1 và K2 tương ứng
+Kiểm tra lại với 1 cặp (p, C) mới; nếu OK thì K1 và K2 là khóa
+
+--- PAGE 13 ---
+16
+Chuẩn mã hóa tiên tiến
+AES (Advanced Encryption Standard) được công 
+nhận chuẩn mới năm 2001
+Tên giải thuật là Rijndael (Rijmen + Daemen)
+An toàn hơn và nhanh hơn 3DES
+Kích thước khối: 128 bit
+Kích thước khóa: 128/192/256 bit
+Số vòng: 10/12/14
+
+--- PAGE 14 ---
+17
+Hệ mã hóa khối khác
+RC5
+• Phát triển bởi Ron Rivest
+• Khối 32/64/128 bit, khóa 0-2040 bit, 0-255 vòng
+• Đơn giản, thích hợp các bộ xử lý có độ rộng khác nhau
+
+--- PAGE 15 ---
+18
+Các phương thức mã hóa khối
+ECB (Electronic Codebook)
+Mã hóa từng khối riêng rẽ
+CBC (Cipher Block Chaining)
+Khối nguyên bản hiện thời được XOR với khối bản mã trước đó 
+CFB (Cipher Feedback)
+Mô phỏng mã hóa luồng (đơn vị s bit)
+s bit mã hóa trước được đưa vào thanh ghi đầu vào hiện thời
+OFB (Output Feeback)
+s bit trái đầu ra trước được đưa vào thanh ghi đầu vào hiện thời
+CTR (Counter)
+XOR mỗi khối nguyên bản với 1 giá trị thanh đếm mã hóa
+
+--- PAGE 16 ---
+19
+Bố trí công cụ mã hóa
+Giải pháp hữu hiệu và phổ biến nhất chống lại các 
+mối đe dọa đến an ninh mạng là mã hóa
+Để thực hiện mã hóa, cần xác định:
+• Mã hóa những gì
+• Thực hiện mã hóa ở đâu
+Có 2 phương án cơ bản:
+• Mã hóa liên kết
+• Mã hóa đầu cuối
+
+--- PAGE 17 ---
+20
+Mã hóa liên kết
+Công cụ mã hóa được đặt ở 2 đầu của mọi liên 
+kết có nguy cơ bị tấn công
+Đảm bảo an toàn việc chuyển thông tin trên tất cả 
+các liên kết mạng
+Các mạng lớn cần đến rất nhiều công cụ mã hóa
+Cần cung cấp rất nhiều khóa
+Nguy cơ bị tấn công tại mỗi chuyển mạch
+Các gói tin cần được mã hóa mỗi khi đi vào một chuyển 
+mạch gói để đọc được địa chỉ ở phần đầu
+Thực hiện ở tầng vật lý hoặc tầng liên kết
+
+--- PAGE 18 ---
+21
+Mã hóa đầu cuối
+Quá trình mã hóa được thực hiện ở 2 hệ thống 
+đầu cuối
+Đảm bảo an ninh dữ liệu người dùng
+Chỉ cần một khóa cho 2 đầu cuối
+
+--- PAGE 19 ---
+22
+Kết hợp các phương án mã hóa
+PSN: Packet-switching node
+Công cụ mã hóa đầu cuối
+Công cụ mã hóa liên kết
+
+--- PAGE 20 ---
+23
+Quản lý khóa bí mật
+Vấn đề đối với mã hóa đối xứng là làm sao phân 
+phối khóa đến các bên truyền tin
+Thường hệ thống mất an ninh là do không quản lý tốt 
+việc phân phối khóa bí mật
+Phân cấp khóa
+• Khóa phiên (tạm thời)
+Dùng mã hóa dữ liệu trong một phiên kết nối
+Hủy bỏ khi hết phiên
+• Khóa chủ (lâu dài)
+Dùng để mã hóa các khóa phiên, đảm bảo phân phối chúng 
+một cách an ninh
+
+--- PAGE 21 ---
+24
+Các cách phân phối khóa
+Khóa có thể được chọn bởi bên A và gửi theo 
+đường vật lý đến bên B
+Khóa có thể được chọn bởi một bên thứ ba, sau 
+đó gửi theo đường vật lý đến A và B
+Nếu A và B đã có một khóa dùng chung thì một 
+bên có thể gửi khóa mới đến bên kia, sử dụng 
+khóa cũ để mã hóa khóa mới
+Nếu mỗi bên A và B đều có một kênh mã hóa 
+đến một bên thứ ba C thì C có thể gửi khóa theo 
+các kênh mã hóa đó đến A và B
+
+--- PAGE 22 ---
+25
+Phân phối khóa tự động
+1.
+Host gửi gói tin yêu cầu kết nối
+2.
+FEP đệm gói tin; hỏi KDC khóa phiên
+3.
+KDC phân phối khóa phiên đển 2 host
+4.
+Gói tin đệm được truyền đi
+FEP = Front End Processor
+KDC = Key Distribution Center
+
+--- PAGE 23 ---
+Minh họa ứng dụng mã hóa
+Không nên lưu trữ password thô vào cơ sở dữ 
+liệu, nếu hacker tấn công thành công thì nguy 
+cơ bị chiếm hoàn toàn hệ thống rõ ràng xảy ra
+26
+
+--- PAGE 24 ---
+27
+Mã hóa bất đối xứng
+Những hạn chế của mật mã đối xứng
+• Vấn đề phân phối khóa
+Khó đảm bảo chia sẻ mà không làm lộ khóa bí mật
+Trung tâm phân phối khóa có thể bị tấn công
+• Không thích hợp cho chữ ký số
+Bên nhận có thể làm giả thông báo nói nhận được từ bên gửi
+Mật mã khóa công khai đề xuất bởi Whitfield Diffie 
+và Martin Hellman vào năm 1976
+• Khắc phục những hạn chế của mật mã đối xứng
+• Có thể coi là bước đột phá quan trọng nhất trong lịch 
+sử của ngành mật mã
+• Bổ sung chứ không thay thế mật mã đối xứng
+
+--- PAGE 25 ---
+28
+Đặc điểm mật mã khóa công khai
+Còn gọi là mật mã hai khóa hay bất đối xứng
+Các giải thuật khóa công khai sử dụng 2 khóa
+• Một khóa công khai
+Ai cũng có thể biết
+Dùng để mã hóa thông báo và thẩm tra chữ ký
+• Một khóa riêng
+Chỉ nơi giữ được biết
+Dùng để giải mã thông báo và ký (tạo ra) chữ ký
+Có tính bất đối xứng
+• Bên mã hóa không thể giải mã thông báo
+• Bên thẩm tra không thể tạo chữ ký
+
+--- PAGE 26 ---
+29
+Mã hóa khóa công khai
+Các khóa công khai
+Nguyên bản
+đầu vào
+Nguyên bản
+đầu ra
+Bản mã
+truyền đi
+Giải thuật
+mã hóa
+Giải thuật
+giải mã
+Khóa công khai
+của Alice
+Khóa riêng
+của Alice
+Ted
+Alice
+Mike
+Joy
+
+--- PAGE 27 ---
+30
+Xác thực
+Các khóa công khai
+Nguyên bản
+đầu vào
+Nguyên bản
+đầu ra
+Bản mã
+truyền đi
+Giải thuật
+mã hóa
+Giải thuật
+giải mã
+Khóa riêng
+của Bob
+Khóa công khai
+của Bob
+Ted
+Bob
+Mike
+Joy
+
+--- PAGE 28 ---
+31
+Ứng dụng mật mã khóa công khai
+Có thể phân ra 3 loại ứng dụng
+• Mã hóa/giải mã
+Đảm bảo sự bí mật của thông tin
+• Chữ ký số
+Hỗ trợ xác thực văn bản
+• Trao đổi khóa
+Cho phép chia sẻ khóa phiên trong mã hóa đối xứng
+Một số giải thuật khóa công khai thích hợp cho 
+cả 3 loại ứng dụng; một số khác chỉ có thể dùng 
+cho 1 hay 2 loại
+
+--- PAGE 29 ---
+32
+Mô hình đảm bảo bí mật
+Nguồn
+th. báo
+Giải thuật
+mã hóa
+Giải thuật
+giải mã
+Đích
+th. báo
+Nguồn
+cặp khóa
+Kẻ
+phá mã
+Nguồn A
+Đích B
+
+--- PAGE 30 ---
+33
+Mô hình xác thực
+Nguồn
+th. báo
+Giải thuật
+mã hóa
+Giải thuật
+giải mã
+Đích
+th. báo
+Nguồn
+cặp khóa
+Kẻ
+phá mã
+Nguồn A
+Đích B
+
+--- PAGE 31 ---
+34
+Mô hình kết hợp
+Nguồn
+th. báo
+G. thuật
+mã hóa
+G. thuật
+giải mã
+Đích
+th. báo
+Nguồn
+cặp khóa
+Nguồn A
+Đích B
+G. thuật
+mã hóa
+G. thuật
+giải mã
+Nguồn
+cặp khóa
+
+--- PAGE 32 ---
+36
+Hệ mã hóa RSA
+Đề xuất bởi Ron Rivest, Adi Shamir và Len 
+Adleman (MIT) vào năm 1977
+Hệ mã hóa khóa công khai thông dụng nhất
+Mã hóa khối với mỗi khối là một số nguyên < n
+Thường kích cỡ n là 1024 bit ≈ 309 chữ số thập phân
+An toàn vì chi phí phân tích thừa số của một số 
+nguyên lớn là rất lớn
+
+--- PAGE 33 ---
+Sự hỗ trợ giữ 2 hệ thống mã hóa
+Giao thức bảo mật sử dụng cả 2:
+• Đối xứng: bảo vệ trao đổi dữ liệu qua mạng, tốc độ 
+xử lý nhanh
+• Bất đối xứng: thành lập kết nỗi gữa 2 thực thể 
+mạng và thành lập khóa đối xứng.
+37
+
+--- PAGE 34 ---
+38
+An ninh của RSA
+Khóa 128 bit là một số giữa 1 và một số rất lớn
+340.282.366.920.938.000.000.000.000.000.000.000.000
+Có bao nhiêu số nguyên tố giữa 1 và số này
+≈ n / ln(n) = 2128 / ln(2128) ≈ 
+3.835.341.275.459.350.000.000.000.000.000.000.000
+Cần bao nhiêu thời gian nếu mỗi giây có thể tính 
+được 1012 số
+Hơn 121.617.874.031.562.000 năm (khoảng 10 triệu lần 
+tuổi của vũ trụ)
+
+--- PAGE 35 ---
+39
+Phá mã RSA
+Phương pháp vét cạn
+Thử tất cả các khóa riêng có thể
+Phụ thuộc vào độ dài khóa
+Phương pháp phân tích toán học
+• Phân n thành tích 2 số nguyên tố p và q
+• Xác định trực tiếp (n) không thông qua p và q
+• Xác định trực tiếp d không thông qua (n)
+Phương pháp phân tích thời gian
+• Dựa trên việc đo thời gian giải mã
+• Có thể ngăn ngừa bằng cách làm nhiễu
+
+--- PAGE 36 ---
+40
+Phân tích thừa số RSA
+An toàn của RSA dựa trên độ phức tạp của việc 
+phân tích thừa số n
+Thời gian cần thiết để phân tích thừa số một số 
+lớn tăng theo hàm mũ với số bit của số đó
+Mất nhiều năm khi số chữ số thập phân của n vượt quá 
+100 (giả sử làm 1 phép tính nhị phân mất 1 s)
+Kích thước khóa lớn đảm bảo an toàn cho RSA
+• Từ 1024 bit trở lên
+• Gần đây nhất năm 1999 đã phá mã được 512 bit (155 
+chữ số thập phân) 
+
+--- PAGE 37 ---
+Bảo vệ tác quyền phần mềm
+Giữ key trên mạng cục bộ hoặc server trung 
+tâm để bảo đảm key duy nhất
+Kẻ tấn công rất khó khăn tìm được key hợp lệ 
+thứ hai 
+Phương pháp khác là giả sử phần mềm sinh ra 
+một số ngẫu nhiên lớn n tại thời điểm mua
+41
+
+--- PAGE 38 ---
+Bảo vệ tác quyền phần mềm
+Hacker có thể dùng phần mềm tự động lặp 
+hàng triệu lần các tổ hợp key để giả lập người 
+dùng nhập thông tin vào cửa sổ “enter license 
+key”
+Vì vậy phần mềm của chúng ta nên kết thúc 
+nếu sau 3 lần thử bị sai và xóa chính nó nếu 
+sai 100 lần.
+42
+
+--- PAGE 39 ---
+Hash functions
+Băm từng chuỗi bit một
+Không thể khôi phục dữ liệu ban đầu từ cipher 
+text
+1 bit khác nhau sẽ tạo ra ít nhất nữa số bit kết 
+quả khác nhau
+43
+
+--- PAGE 40 ---
+Hash functions
+MD (Message Digest) functions
+MD2, MD4, MD5: 16 bytes fingerprint
+SHA-1 (Secure Hash Algorithm-1): 20 bytes
+SHA-256: 256 bytes
+SHA-224: 224 bytes
+SHA-512:  512 bytes
+44
+
+--- PAGE 41 ---
+Chữ ký điện tử
+MAC (Message Authentication Code), chữ ký 
+điện tử có hai mục tiêu:
+• Kiểm tra tính nguyên thủy (nguồn gốc)
+• Kiểm tra toàn vẹn của dữ liệu
+Sử dụng hash functions, symmetric hoặc 
+asymmetric keys
+45
+
+--- PAGE 42 ---
+Chữ ký điện tử
+46
+
+--- PAGE 43 ---
+Chữ ký điện tử
+47
+
+--- PAGE 44 ---
+PKI
+Public Key Infrastructure
+Được sử dụng nhiều:  
+S/MIME, SSL/TLS, IPsec 
+và SSH.
+48
+http://www.zyxeltech.de/snotezw5_362/image/pki_faq_1.gif
+
+--- PAGE 45 ---
+PKI
+PKI phân biệt 2 vai trò:
+Certification Authority (CA):
+• Giữ private key
+• Phát hành và hủy chứng thực số
+Registration Authority:
+• Đăng kí với CA
+• Xử lý yêu cầu chứng thực từ người dùng
+49

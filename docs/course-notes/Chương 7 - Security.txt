@@ -1,0 +1,297 @@
+--- PAGE 1 ---
+CHƯƠNG 7BẢO MẬT MẠNG
+LẬP TRÌNH MẠNG CĂN BẢN
+
+--- PAGE 2 ---
+BẢO MẬT MẠNGFIREWALL, PROXY SERVER VÀ ROUTER
+
+--- PAGE 3 ---
+NỘI DUNG
+Giới thiệu
+Xây dựng hệ thống mạng từ đầu
+Xây dựng hệ thống mạng 
+doanh nghiệp 
+Tunneling trong mạng doanh nghiệp
+Vấn đề cần tránh khi xây dựng hệ thống mạng
+3
+
+--- PAGE 4 ---
+XÂY DỰNG HỆ THỐNG MẠNG TỪ ĐẦUChọn kiến trúc mạng (topology):
+3 kiểu kết nối vật lý chính: 
+UTP
+BNC
+Wireless
+5
+
+--- PAGE 5 ---
+3 LOẠI KẾT NỐI VẬT LÝ
+6
+
+--- PAGE 6 ---
+UTP VÀ STP
+7
+
+--- PAGE 7 ---
+KHÁC NHAU GIỮA UTP VÀ BNC
+Loại cáp kết nối đến máy tính
+UTP giống cáp điện thoại, RJ45
+BNC cáp đồng trục, giống cáp tivi, đầu cắm tròn
+8
+
+--- PAGE 8 ---
+XÂY DỰNG HỆ THỐNG MẠNG TỪ ĐẦUChọn kiến trúc mạng (topology)
+UTP được dành cho dạng cấu trúc star
+9
+
+--- PAGE 9 ---
+XÂY DỰNG HỆ THỐNG MẠNG TỪ ĐẦU
+BNC dùng cho kiến trúc bus (ít được sử dụng)
+10
+
+--- PAGE 10 ---
+KẾT NỐI KHÁC
+Vấn đề không t
+ư ơng thích
+11
+
+--- PAGE 11 ---
+XÂY DỰNG HỆ THỐNG MẠNG TỪ ĐẦU
+Cài đặt mạngNgười dùng sẽ mong đợi một cơ chế chia sẻ file trên mạng 
+nên cung câp từ đầu:
+Chọn tên duy nhất cho máy tính trong mạng
+Mở các giao thức và dịch vụ
+Cấu hình TCP/IP
+Chia sẻ thư mục
+Hạn chế khả năng của ng
+ư ời dùng truy cập từ xa
+12
+
+--- PAGE 12 ---
+XÂY DỰNG HỆ THỐNG MẠNG TỪ ĐẦU
+13
+
+--- PAGE 13 ---
+XÂY DỰNG HỆ THỐNG MẠNG TỪ ĐẦU
+14
+
+--- PAGE 14 ---
+XÂY DỰNG HỆ THỐNG MẠNG TỪ ĐẦU
+15
+
+--- PAGE 15 ---
+XÂY DỰNG HỆ THỐNG MẠNG TỪ ĐẦU
+16
+
+--- PAGE 16 ---
+XÂY DỰNG HỆ THỐNG MẠNG TỪ ĐẦU
+17
+
+--- PAGE 17 ---
+THIẾT LẬP VPN
+Virtual Private Network (VPN) cho phép các client từ xa truy xuất an toàn vào mạng LAN
+Việc thiết kế bảo đảm người dùng từ xa “trong suốt” với việc truy xuất đó để chia sẻ file, dùng máy in,…
+18
+
+--- PAGE 18 ---
+THIẾT LẬP VPN
+VPN hoạt động trên giao thức:
+PPTP
+L2TP
+IPSec
+SSL
+19
+
+--- PAGE 19 ---
+20
+
+--- PAGE 20 ---
+21
+
+--- PAGE 21 ---
+XÂY DỰNG HỆ THỐNG MẠNG THƯƠNG MẠI
+Việc cấp phát cho mỗi người dùng một IP 
+public để truy 
+cập trực tiếp vào Internet là việc 
+không thể 
+làm được (do 
+khan hiếm địa chỉ)
+Khắc phục: nhóm người dùng kết nối với gateway, từ đó có kết nối trực tiếp đến Internet 
+22
+
+--- PAGE 22 ---
+XÂY DỰNG HỆ THỐNG MẠNG THƯƠNG MẠI
+Gateway là từ tổng quát chỉ thiết bị kết nối giữa mạng LAN và Internet
+Gateway:
+một máy tính (proxy)
+thiết bị chuyên dụng hoạt động độc lập (router)
+Proxy là phần mềm chạy trên một máy tính
+Router là thiết bị phần cứng chuyên dụng hoạt động độc lập
+23
+
+--- PAGE 23 ---
+ROUTER
+Proxy có nhược điểm về hiệu suất hoạt động
+Router:
+Xử lý ở mức gói tin (packet) 
+tốc độ xử lý vượt trội 
+Định tuyến các packet đến đúng hướng, thay vì gửi một cách mù quáng đến router kế tiếp
+Router gần như “trong suốt” đối với các client nên độ linh hoạt cao hơn
+24
+
+--- PAGE 24 ---
+ROUTER
+Router phải có ít nhất 2 interface:
+Kết nối đến mạng WAN (kết nối với ISP)
+Mỗi port LAN có thể được nối vào 1 máy tính hoặc hub, switch
+25
+
+--- PAGE 25 ---
+26
+
+--- PAGE 26 ---
+ROUTER
+Các thông tin cần nhận từ ISP:
+Địa chỉ IP cố định được phép dùng
+IP của default gateway
+Subnet mask
+Primary và secondary DNS
+Mỗi máy tính nằm sau router phải được thiết lập địa chỉ default gateway và DNS server
+27
+
+--- PAGE 27 ---
+FIREWALL
+Thực hiện chức năng kiểm soát dòng dữ liệu đi vào và đi ra khỏi mạng LAN với tốc độ xử lý rất cao
+Có thể là phần mềm hoặc phần cứng
+28
+
+--- PAGE 28 ---
+29
+
+--- PAGE 29 ---
+PROXY
+Phương án được xem xét nếu kinh phí ít hoặc số lượng host truy cập nhỏ
+Làm chậm tốc độ truy cập tương đối rõ
+Thiết kế bằng cách sử dụng 1 máy tính đóng vai trò proxy, chia sẻ kết nối Internet của nó cho các máy khác trong mạng
+Tất cả các máy khác cần phải biết địa chỉ IP của máy proxy
+30
+
+--- PAGE 30 ---
+31
+
+--- PAGE 31 ---
+PROXY
+2 dạng proxy:
+Proxy mức ứng dụng: thông thường chấp nhận chỉ 1 giao thức như HTTP
+Proxy mức mạch điện tử: có thể chấp nhận bất kỳ giao thức nào trên IP. Phổ biến là SOCKS (xem RFC 1928).
+32
+
+--- PAGE 32 ---
+NAT
+Network address translator (NAT)
+NAT chuyển đổi địa chỉ IP từ private thành public khi gói tin đi ra khỏi mạng LAN, ghi nhận vào bảng chuyển đổi NAT
+Khi gói tin phản hồi đến, NAT sẽ tra trong bảng chuyển đổi và biết được IP private để chuyển đến đúng host bên trong
+33
+
+--- PAGE 33 ---
+NAT
+34
+
+--- PAGE 34 ---
+NAT
+NAT được phát triển bởi hãng CISCO, nhưng hiện đã trở thành chuẩn Internet (xem RFC 1631)
+Static NAT là kiểu mà mỗi địa chỉ private đều có địa chỉ public tương ứng 
+có nghĩa là mỗi máy tính đều phân 
+biệt được đối với mạng ngoài, nhưng chưa được phép truy cập đến
+35
+
+--- PAGE 35 ---
+NAT
+Dynamic NAT là kiểu mà mọi địa chỉ private được ánh xạ đến 1 địa chỉ public duy nhất, khác nhau bởi tham số bổ sung là local port
+NAT cần lưu thông tin gói tin đã gửi ra 
+Một mạng có 100 máy có thể tạo ra 6 triệu phiên làm việc đồng thời
+36
+
+--- PAGE 36 ---
+TUNNELING TRONG MẠNG DOANH NGHIỆP
+Nếu khách hàng đã có mạng hoạt động nhưng ứng dụng không làm việc được trên đó thì không thể bỏ qua vấn đề này được
+Tình huống: Ứng dụng không làm việc được ở sau một firewall, thì khi đó có 3 phương án giải quyết: 
+chuyển server ra ngoài firewall 
+thiết lập port chuyển qua t
+unnel
+đến firewall (hoặc 
+router)
+dữ liệu được 
+đưa lên một máy chủ proxy để tránh 
+firewall
+37
+
+--- PAGE 37 ---
+PROXY TUNNELING
+Không giống như router, các proxy không ‘trong suốt” đối với client
+Cần phải chỉnh sửa code để tham chiếu đến proxy
+Khai báo và sử dụng proxy thông qua lớp WebProxy và HTTPWebRequest
+38
+
+--- PAGE 38 ---
+PROXY TUNNELINGWebProxy myProxy= new WebProxy("proxyserver",8080);myProxy.BypassProxyOnLocal = true;String url = "http://www.yahoo.com";HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(url);request.Proxy = myProxy;
+39
+
+--- PAGE 39 ---
+FIREWALL TUNNELING
+Nếu 
+firewall 
+được 
+thiết lập block
+tất cả các cổng
+thì có thể 
+thay đổi 
+firewall cho phép truy cập vào cổng yêu cầu
+Một số router cho phép thiết lập cổng được chuyển dữ liệu thẳng mà không qua firewall 
+40
+
+--- PAGE 40 ---
+FIREWALL TUNNELING
+Tổng quát:
+Nếu không muốn truy cập vào firewall hoặc muốn cung cấp một giải pháp thân thiện người dùng thì ràng buộc dữ liệu trên 1 proxy. 
+Máy tính ở sau firewall sẽ mở kết nối TCP với proxy, dữ liệu từ client đến proxy được chuyển qua kết nối đó. 
+Đây là kỹ thuật mà các ứng dụng Instant Messenger dùng.
+41
+
+--- PAGE 41 ---
+PHÒNG TRÁNH 
+Phòng tránh luôn luôn là cách tốt hơn để xảy ra sự cố rồi mới tìm cách chữa trị
+Một số vấn đề:
+Xung đột port
+Vấn đề cấp phát IP động
+42
+
+--- PAGE 42 ---
+XUNG ĐỘT PORT
+Nếu phần mềm không thể chạy trên port mặc định 
+
+nghĩ đến việc chuyển sang port khác, hoặc nhắc nhở cho người dùng chuyển sang port khác. Nếu không ta có thể gặp 2 vấn đề:
+Người dùng sẽ không muốn ngừng phần mềm dùng trùng port
+Firewall có thể đã được thiết lập để cho phép lưu thông qua một số port
+43
+
+--- PAGE 43 ---
+XUNG ĐỘT PORT
+Các client đang chờ kết nối vào ứng dụng cần phải biết port đã thay đổi 
+cần hiển thị hộp thoại và cho phép 
+người dùng nhập vào port mới, hoặc có thể dùng 1 DNS request để biết server đang lắng nghe trên port nào
+44
+
+--- PAGE 44 ---
+VẤN ĐỀ CẤP PHÁT IP ĐỘNG
+Đây là vấn đề thường gặp phải
+Các ứng dụng thường mắc sai lầm là giả định địa chỉ IP cục bộ tĩnh trong suốt hoạt động của nó
+Cách giải quyết là dùng cơ chế theo dõi IP
+Phần mềm “No IP” có thể dùng kiểu ánh xạ một địa chỉ IP động từ DNS name
+Khi post 1 địa chỉ IP cần bảo đảm là địa chỉ public. Địa chỉ như 192.168.0.1 cho client không phải là ý tưởng tốt đối với thế giới bên ngoài
+45
+
+--- PAGE 45 ---
+BÀI TẬP
+Đọc và nghiên cứu các tài liệu về RFC được giới thiệu trong chương
+Vận dụng khả năng cài đặt hệ thống ảo trên máy tính để hiện thực cơ chế hoạt động của các thiết bị router, firewall,…
+46

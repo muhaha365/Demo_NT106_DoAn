@@ -1,0 +1,470 @@
+--- PAGE 1 ---
+CHƯƠNG 8ICMP & PING, TRACERT
+LẬP TRÌNH MẠNG CĂN BẢN
+
+--- PAGE 2 ---
+NỘI DUNG
+Giới thiệu
+ICMP Protocol
+Ứng dụng Ping trong C#
+Ứng dụng Tracert Route trong C#
+2
+
+--- PAGE 3 ---
+ICMP
+4
+
+--- PAGE 4 ---
+ICMP
+6
+Loại
+mã
+Mô tả
+0        0         echo reply (ping)3        0         dest. network unreachable3        1         dest host unreachable3        2         dest protocol unreachable3        3         dest port unreachable3        6         dest network unknown3        7         dest host unknown4        0         source quench (congestion  control 
+- not used)
+8        0         echo request (ping)9        0         route advertisement10      0         router discovery11      0         TTL expired12      0         bad IP header
+
+--- PAGE 5 ---
+ICMP
+7
+Các
+loại
+ICMP
+thường
+thấy
+là
+:
+ICMP
+echo
+ICMP
+Destination
+Unreachable
+ICMP
+Parameter
+Problem
+ICMP
+Redirect/
+Change
+Requesst
+ICMP
+Timestamp
+request
+ICMP
+Information
+Request
+and
+Reply
+ICMP
+Address
+Mask
+Request
+ICMP
+Router
+Discovery
+ICMP
+Source
+Quench
+
+--- PAGE 6 ---
+ICMP ECHO
+Đây là loại thường nhất và chúng rất quan trọng. 
+Có hai loại ICMP echo là echo request và echo reply.
+Type = 0 
+-> echo reply, code = 0
+Type = 8 
+-> echo 
+request
+, code = 0
+8
+
+--- PAGE 7 ---
+ĐỊNH DẠNG GÓI TIN ICMP
+9
+•TYPE
+( 8 bit)
+: là một
+sốnguyên
+8 bit
+để
+xác
+định
+thông
+điệp
+.
+•CODE
+( 8 bit)
+: cung
+cấp
+thêm
+thông
+tin
+vềkiểu
+thông
+điệp
+.
+•CHECKSUM(
+16 bit)
+: ICMP
+sửdụng
+thuật
+checksum
+như
+IP, nhưng
+ICMP
+checksum
+chỉ
+tính
+đến
+thông
+điệp
+ICMP
+.
+
+--- PAGE 8 ---
+ICMP (VD BẮT GÓI TIN WIRESHARK)
+10
+
+--- PAGE 9 ---
+ICMP (PING CMD)
+11
+
+--- PAGE 10 ---
+ICMP (PING CMD)
+12
+•Nguyên
+nhân
+:
+– Do đường
+truyền
+vật
+lý (kiểm
+tra
+lại
+kết
+nối,
+cáp)
+.
+– IP không
+tồn
+tại,
+máy
+PC
+đích
+bịtắt
+– Máy
+đích
+bịchặn
+bởi
+Firewall,
+firewall
+cấm
+ping
+(tắt
+firewall,
+hoặc
+cấu
+hình
+lại)
+.
+– Gửi
+thành
+công
+nhưng
+firewall
+bên
+máy
+đích
+chặn
+ping
+=> không
+reply
+được
+.
+
+--- PAGE 11 ---
+ICMP (PING CMD)
+13
+•Nguyên
+nhân
+:
+– Router
+không
+biết
+đường
+đi
+.
+– IP không
+tồn
+tại,
+máy
+PC
+đích
+bịtắt
+.
+– Do đường
+truyền
+vật
+lý
+.
+
+--- PAGE 12 ---
+RAW 
+SOCKET
+14
+Sử dụng Raw Socket (≠ TCP, ≠ UDP)
+ProtocolType: Icmp 
+
+--- PAGE 13 ---
+RAW 
+SOCKET
+15
+
+--- PAGE 14 ---
+RAW PING (IN C#)
+Socket host = new Socket(AddressFamily.InterNetwork, 
+SocketType.Raw, 
+ProtocolType.Icmp);
+16
+Sử dụng Raw Socket (≠ TCP, ≠ UDP)
+ProtocolType: Icmp 
+
+--- PAGE 15 ---
+RAW PING (IN C#)
+Socket host = new Socket(AddressFamily.InterNetwork, 
+SocketType.Raw, 
+ProtocolType.Icmp);
+17
+Gửi gói dữ liệu Raw
+ICMP là giao thức không hướng kết nối
+Sử dụng phương thức SendTo() của lớp 
+Socket
+đ ể gửi
+Cổng trong giao thức ICMP không quan 
+trọng
+
+--- PAGE 16 ---
+RAW PING (IN C#)
+Socket host = new Socket(AddressFamily.InterNetwork, 
+SocketType.Raw, 
+ProtocolType.Icmp);
+18
+Nhận 
+gói dữ liệu Raw
+Sử dụng phương thức ReceiveForm cửa lớp Socket
+Dữ liệu nhận về là một gói tin IP chúng ta phải tách 
+ra
+đ ể 
+lấy gói tin ICMP
+Raw Socket không 
+tựđịnh 
+dạng 
+gói tin 
+ICMP
+=> 
+tựđịnh 
+dạng
+
+--- PAGE 17 ---
+RAW PING (IN C#)
+19
+
+--- PAGE 18 ---
+RAW PING
+(C#
+)
+20
+ICMP packet = new ICMP();
+packet.Type = 0x08;
+packet.Code = 0x00;
+packet.Checksum = 0;
+Type = 8 
+-> echo 
+request
+, code = 0
+
+--- PAGE 19 ---
+RAW PING (C#)
+21
+
+--- PAGE 20 ---
+CLASS PING (IN C#)
+Sử dụng System.Net.NetworkInformation 
+Tham khảo thêm tại:https://docs.microsoft.com/en
+-
+us/dotnet/api/system.net.networkinformation.ping?view=netframework
+- 4.8
+22
+
+--- PAGE 21 ---
+CLASS PING (IN C#) 
+- DEMO
+23
+
+--- PAGE 22 ---
+CLASS PING (IN C#)
+24
+private void btnPing_Click(object sender, EventArgs e)
+{
+rtbResult.Clear();
+string rs = "";
+Ping pingSender = new Ping();
+PingOptions options = new PingOptions();
+options.DontFragment = true;
+string data = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+byte[] buffer = Encoding.ASCII.GetBytes(data);
+int timeout = 120;
+PingReply reply = 
+pingSender.Send(txtDest.Text.Trim(), timeout, buffer, 
+options);
+
+--- PAGE 23 ---
+CLASS PING (IN C#)
+25
+if (reply.Status == IPStatus.TimedOut)
+{
+rs = "Request Timed out";
+rtbResult.Text += rs + "\r\n";
+}
+else
+{
+rs = "Pinging " + txtDest.Text.Trim() + " [" + 
+reply.Address.ToString() + "] with 32 bytes of data:";
+rtbResult.Text += rs + "\r\n";
+
+--- PAGE 24 ---
+CLASS PING (IN C#)
+26
+if (reply.Status == IPStatus.Success)
+{
+rs = "Address: " + reply.Address.ToString();
+rtbResult.Text += rs + "\r\n";
+rs = "RoundTrip time: " + 
+reply.RoundtripTime;
+rtbResult.Text += rs + "\r\n";
+rs = "Time to live: " + reply.Options.Ttl;
+rtbResult.Text += rs + "\r\n";
+rs = "Don't fragment: " + 
+reply.Options.DontFragment;
+rtbResult.Text += rs + "\r\n";
+rs = "Buffer size: " + reply.Buffer.Length;
+rtbResult.Text += rs + "\r\n";
+}
+}
+}
+
+--- PAGE 25 ---
+Giới thiệu
+ĐỘ TRỄ VÀ ĐỊNH TUYẾN TRÊN INTERNET “THỰC TẾ”
+Độ
+trễ
+và
+sựmất
+mát
+trên
+Internet
+“thực
+tế” trông
+như
+thế
+nào
+Chương
+trình
+traceroute
+: giúp
+đo lường
+độ
+trễ
+từnguồn
+tới thiết
+bịđịnh
+tuyến
+cái
+mà
+dọc
+theo
+con
+đường
+Internet
+từđầu
+cuối
+này
+đến
+đầu
+cuối
+kia
+đến
+đích
+. Với
+tất
+cả
+i :
+Gởi
+3 gói
+tin
+sẽđến
+bộđịnh
+tuyến
+I trên
+đường
+tới
+đích
+Router
+i sẽtrả
+về
+các
+gói
+tin
+cho
+người
+gởi
+Khoảng
+thời
+gian
+lần
+gửi
+giữa
+truyền
+và
+trả
+lời
+3 probes
+3 probes
+3 probes
+27
+
+--- PAGE 26 ---
+1  cs-gw (128.119.240.254)  1 ms  1 ms  2 ms
+2  border1-rt-fa5-1-0.gw.umass.edu (128.119.3.145)  1 ms  1 ms  2 ms
+3  cht-vbns.gw.umass.edu (128.119.3.130)  6 ms 5 ms 5 ms
+4  jn1-at1-0-0-19.wor.vbns.net (204.147.132.129)  16 ms 11 ms 13 ms 
+5  jn1-so7-0-0-0.wae.vbns.net (204.147.136.136)  21 ms 18 ms 18 ms 
+6  abilene-vbns.abilene.ucaid.edu (198.32.11.9)  22 ms  18 ms  22 ms
+7  nycm-wash.abilene.ucaid.edu (198.32.8.46)  22 ms  22 ms  22 ms
+8  62.40.103.253 (62.40.103.253)  104 ms 109 ms 106 ms
+9  de2-1.de1.de.geant.net (62.40.96.129)  109 ms 102 ms 104 ms
+10  de.fr1.fr.geant.net (62.40.96.50)  113 ms 121 ms 114 ms
+11  renater-gw.fr1.fr.geant.net (62.40.103.54)  112 ms  114 ms  112 ms
+12  nio-n2.cssi.renater.fr (193.51.206.13)  111 ms  114 ms  116 ms
+13  nice.cssi.renater.fr (195.220.98.102)  123 ms  125 ms  124 ms
+14  r3t2-nice.cssi.renater.fr (195.220.98.110)  126 ms  126 ms  124 ms
+15  eurecom-valbonne.r3t2.ft.net (193.48.50.54)  135 ms  128 ms  133 ms
+16  194.214.211.25 (194.214.211.25)  126 ms  128 ms  126 ms
+17  * * *
+18  * * *
+19  fantasia.eurecom.fr (193.55.113.142)  132 ms  128 ms  136 ms
+traceroute: gaia.cs.umass.edu đến www.eurecom.fr
+3 giá trị trễ từ
+gaia.cs.umass.edu đến cs-gw.cs.umass.edu 
+* Không có phản hồi (thăm dò bị mất, router không trả lời)
+Trans-oceanic
+liên kết
+28
+* Do some traceroutes from exotic countries at www.traceroute.org
+
+--- PAGE 27 ---
+TRACERT (WINDOW CMD)
+29
+
+--- PAGE 28 ---
+VIẾT ỨNG DỤNG TRACERT
+30

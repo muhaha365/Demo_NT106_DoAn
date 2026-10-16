@@ -1,0 +1,765 @@
+--- PAGE 1 ---
+CHƯƠNG 6GIAO TIẾP VỚI 
+FILE 
+SERVER
+LẬP TRÌNH MẠNG CĂN BẢN
+
+--- PAGE 2 ---
+NỘI DUNG
+Giới thiệu
+Nguyên tắc hoạt động
+Cài đặt FTP Server với
+TCPClient
+FTPWebRequest và WebClien
+t
+Chương 6: Giao tiếp với File server
+2
+
+--- PAGE 3 ---
+GIỚI THIỆU
+Đểwebsite
+chạy
+cần
+phải
+đưa
+source
+web
+đã thiết
+kế
+lên
+server
+Quá
+trình
+đưa
+lên
+thông
+qua
+giao
+thức
+truyền
+file
+(Ví
+dụ
+:
+FTP
+)
+FTP
+là cơ
+chế
+chính
+đểtruyền
+file
+giữa
+các
+máy
+tính
+thông
+qua
+môi
+trường
+Internet
+3
+
+--- PAGE 4 ---
+CÀI ĐẶT FTP SERVER
+Để truy cập vào FTP server, cần biết địa chỉ IP và phải có username/password
+Trước tiên cần thực hiện cài đặt FTP server
+Có thể sử dụng công cụ hỗ trợ sẵn trong Windows hoặc cài đặt các phần mềm khác như: FileZilla, WinSCP
+4
+
+--- PAGE 5 ---
+5
+
+--- PAGE 6 ---
+6
+
+--- PAGE 7 ---
+7
+
+--- PAGE 8 ---
+CÀI ĐẶT FTP SERVER TRÊN WINDOWS
+Control Panel 
+→Add/Remove Programs 
+→Add or Remove 
+Windows Components 
+→Internet Information Services 
+→
+FTP Service
+8
+
+--- PAGE 9 ---
+9
+
+--- PAGE 10 ---
+CÀI ĐẶT FTP TRÊN WINDOWS
+Để quản trị và tinh chỉnh cấu hình FTP server: Control Panel 
+→Administrative Tools 
+→Internet Information 
+Services 
+→FTP
+Hoặc Internet Information Services 
+Add FTP Site
+Chỉnh sửa các thiết lập:
+Cho phép số kết nối đồng thời tối đa
+Thời gian timeout
+Thư mục vật lý
+Cho phép đăng nhập nặc danh,…
+10
+
+--- PAGE 11 ---
+11
+
+--- PAGE 12 ---
+12
+
+--- PAGE 13 ---
+CÀI ĐẶT FTP TRÊN WINDOWS
+13
+
+--- PAGE 14 ---
+TỔNG QUAN VỀ FTP
+FTP hoạt động trên 2 port: 
+21 cho socket điều khiển
+20 cho socket dữ liệu
+FTP được định nghĩa trong RFC 959
+Lệnh giao dịch giữa client và server tương đối dễ hiểu và ngắt thành các dòng
+14
+
+--- PAGE 15 ---
+TỔNG QUAN VỀ FTP
+Mở CMD
+Cú pháp: 
+FTP <IP của server> 
+Sau khi kết nối thành công, xuất hiện màn hình hỏi:
+User : <Nhập tên user>
+Pass : <Nhập mật khẩu>
+Lúc này xuất hiện dấu nhắc dòng lệnh, gõ tiếp các lệnh theo nhu cầu, cú pháp như sau:
+15
+
+--- PAGE 16 ---
+16
+
+--- PAGE 17 ---
+LỆNH FTP TRONG WINDOWS CMD
+Lệnh
+Ý nghĩa
+?
+Giúp đỡ
+ascii 
+chuyển chế độ truyền là ASCII
+binary 
+chuyển chế độ truyền là nhị phân
+bye 
+Thoát khỏi FTP (giống lệnh quit) 
+cd 
+Thay đổi thư mục trên máy chủ 
+close 
+Kết thúc kết nối đến máy tính khác 
+close brubeck Đóng kết nối hiện tại với máy tính khác, nhưng vẫn giữ môi trường lệnh FTP
+delete 
+xóa 1 file trong thư mục từ xa hiện hành (trên server)
+get 
+Để copy 1 file từ máy từ xa về máy cục bộ
+get ABC DEF Copy file ABC trong thư mục từ xa hiện hành lên file DEF trong máy cục bộ (ghi đè). 
+17
+
+--- PAGE 18 ---
+LỆNH FTP TRONG WINDOWS CMD
+Lệnh
+Ý nghĩa
+get ABC Copy file ABC trong thư mục từ xa hiện hành lên file ABC trong máy cục bộ (cùng tên).
+help 
+Xem danh sách các lệnh FTP sẵn sàng 
+lcd 
+thay đổi thư mục trên máy ở xa
+ls 
+Liệt kê tên các file trên thư mục hiện hành trong máy ở xa 
+mkdir 
+Tạo thư mục mới trong máy ở xa 
+mget Copy nhiều file từ máy ở xa về máy hiện hành; sẽ được nhắc y/n cho mỗi file 
+mget * Copy tất cả các  file từ máy ở xa về máy hiện hành;  sẽ được nhắc y/n cho mỗi file. Dùng ký tự đại diện *. 
+mput Copy nhiều file từ máy hiện hành lên máy ở xa; sẽ được nhắc y/n cho mỗi 
+file
+open 
+Mở 1 kết nối với máy tính khác 
+18
+
+--- PAGE 19 ---
+LỆNH FTP TRONG WINDOWS CMD
+Lệnh
+Ý nghĩa
+open brubeck
+Mở 1 kết nối mới với máy tính, dùng chế độ  brubeck; 
+put 
+Copy 1 file từ máy hiện hành lên máy ở xa
+pwd 
+Xem thư mục hiện hành trên máy ở xa 
+quit 
+Thoát khỏi môi trường FTP (giống lệnh bye) 
+rmdir 
+Xóa thư mục hiện hành trên máy ở xa 
+19
+
+--- PAGE 20 ---
+TỔNG QUAN VỀ FTP
+20
+FTP cũng chấp nhận file script như tham số dòng lệnh 
+
+có thể chạy tự động
+Ví dụ: tạo file script.ftp như sau open www.eej.ulst.ac.ukanonymousme@myemail.comcd libget libtermcap.so.2.0.8
+quit
+
+--- PAGE 21 ---
+TỔNG QUAN VỀ FTP
+21
+Để thực hiện script trên, mở dấu nhắc DOS, chuyển đến thư mục lưu file script.ftp
+Thực thi lệnh: ftp 
+– s:script.ftp 
+
+--- PAGE 22 ---
+MÃ TRẠNG THÁI FTP
+Mã
+Ý nghĩa
+1xx
+Phản hồi bước đầu thành công. Lệnh đã bắt đầu thực thi trên server
+2xx
+Phản hồi bước đầu thành công. Lệnh đã hoàn tất trên server
+3xx
+Phản hồi trung gian thành công. Lệnh đã chấp nhận, nhưng chưa thực thi 
+trên server
+4xx
+Phản hồi không thành công tạm thời. Lệnh đã bị từ chối, nhưng có thể được kích hoạt lại trên server
+5xx
+Phản hồi không thành công hoàn toàn. Lệnh đã bị từ chối, và không thể được kích hoạt lại trên server
+22
+
+--- PAGE 23 ---
+MÃ TRẠNG THÁI FTP
+23
+Ví dụ: 220 Serv
+- U FTP
+-Server v2.5k for WinSock ready...
+USER secret331 User name
+okay, need password.
+PASS (hidden)230 User logged in, proceed. PWD257 "/" is current directory. TYPE A200 Type set to A. PASV227 Entering Passive Mode (212,17,38,3,11,144) LIST 
+- aL150 Opening ASCII mode data connection for /bin/ls.226 Transfer complete.
+
+--- PAGE 24 ---
+CÁCH DÙNG CÁC PORT
+Khi
+soạn
+email,
+kết
+thúc
+nội
+dung
+của
+email
+được
+đánh
+dấu
+bằng
+chuỗi
+ký
+tự<enter>
+.<enter>
+. Chuỗi
+này
+sẽđược
+loại
+bỏ
+khi
+gửi
+đi
+Với
+FTP,
+những
+chuỗi
+ký
+tựnày
+có thể
+nằm
+trong
+nội
+dung,
+nếu
+gỡ
+bỏ
+có
+thể
+làm
+hỏng
+file
+. Đểtránh
+vấn
+đề
+trên,
+FTP
+dùng
+port
+21
+đểgửi/nhận
+lệnh,
+mỗi
+lệnh
+kết
+thúc
+bởi
+<enter>
+24
+
+--- PAGE 25 ---
+CÁCH DÙNG CÁC PORT
+Dữ
+liệu
+được
+gửi
+qua
+lại giữa
+client
+và server
+trên
+một
+kết
+nối
+tạm
+thời
+ởport
+20
+, được
+mở
+khi
+có
+dữ
+liệu
+và đóng
+khi
+kết
+thúc
+truyền
+dữ
+liệu
+đó
+Hầu
+hết
+FTP
+client
+đóng
+vai
+trò
+yêu
+cầu
+và
+FTP
+server
+đóng
+vai
+trò phục
+vụ
+FTP
+ởchế
+độPassive
+: client
+hướng
+dẫn
+server
+lắng
+nghe
+trên
+port
+dữ
+liệu
+không
+phải
+port
+mặc
+định
+là 20
+25
+
+--- PAGE 26 ---
+CÁCH DÙNG CÁC PORT
+Phản
+hồi
+cho
+lệnh
+PASV
+sẽluôn
+luôn
+chứa
+danh
+sách
+6 số
+đặt
+trong
+dấu
+ngoặc
+được
+phân
+tách
+bởi
+dấu
+phẩy
+:
+4 sốđầu
+đại
+diện
+cho
+địa
+chỉ
+IP
+2 sốcuối
+thể
+hiện
+port
+đểserver
+lắng
+nghe
+dữ
+liệu
+Ví dụ
+: 192
+,168
+, 5 , 7 , 4 , 91
+Server
+có
+địa
+chỉ
+IP
+là 192
+.168
+. 5 . 7
+Đang
+lắng
+nghe
+trên
+port
+1115
+(=
+4 × 256
++ 91
+)
+26
+
+--- PAGE 27 ---
+CÁCH DÙNG CÁC PORT
+Server sẽ thực hiện lắng nghe trên port sớm nhất có thể sau khi nhận lệnh PASV
+Sever trả lời 227 cho biết đang lắng nghe trên port đó
+Khi client kết nối vào port này, server trả lời bằng thông điệp 150
+Nếu client không kết nối trong khoảng thời gian quy định (khoảng vài giây) 
+server sẽ gửi thông điệp timeout 425
+27
+
+--- PAGE 28 ---
+CÁCH DÙNG CÁC PORT
+Server sẽ gửi dữ liệu yêu cầu trên port đã mở và đóng kết nối lại sau khi hoàn thành gửi dữ liệu xong, phát ra thông điệp 226
+Tiến trình tương tự diễn ra theo thứ tự ngược khi upload lên server. Khi lệnh PASV được phát ra và client kết nối vào port do server chỉ định. Client sau đó đặt nội dung file lên socket mới và đóng lại sau khi gửi file xong
+28
+
+--- PAGE 29 ---
+FTP: TIẾN TRÌNH BẮT TAY
+Cơ chế chứng thực: FTP chấp nhận username / password dạng text thô 
+
+có thể nhìn thấy được với ch
+ư ơng trình phân tích
+FTP trên SSL được khuyến cáo khi website truyền thông tin quan trọng
+29
+
+--- PAGE 30 ---
+FTP: TIẾN TRÌNH BẮT TAY
+FTP server cũng cho phép truy cập nặc danh (anonymous). Khi ấy username là anonymous và password tùy ý. Đây là thiết lập mặc định của dịch vụ Microsoft FTP
+Khi kết nối vào FTP server ở port 21, server sẽ phản hồi như sau: 220 <some message><enter>
+30
+
+--- PAGE 31 ---
+FTP: TIẾN TRÌNH BẮT TAY
+Giống quá trình bắt tay của POP3, các lệnh USER và PASS được gửi lần lượt: USER <username><enter>
+Server phản hồi: 331 <some message><enter>
+Client gửi: PASS <password><enter>
+31
+
+--- PAGE 32 ---
+FTP: TIẾN TRÌNH BẮT TAY
+Server phản hồi nếu đăng nhập thành công: 230 <some message><enter>
+Server phản hồi nếu đăng nhập thất bại: 530 <some message><enter>
+Nếu đăng nhập thành công thì người dùng có thể truy cập vào FTP server với quyền tương ứng
+32
+
+--- PAGE 33 ---
+FTP: TIẾN TRÌNH BẮT TAY
+Một số FTP server sẽ hủy kết nối với người dùng không có thao tác gì để tiết kiệm tài nguyên
+Dùng lệnh NOOP để báo cho server biết nhằm tránh hiện tượng trên NOOP<enter>200 <message><enter>
+33
+
+--- PAGE 34 ---
+FTP: TIẾN TRÌNH BẮT TAY
+Để đóng kết nối, client đơn giản chỉ cần đóng kết nối TCP bên dưới bằng cách gửi lệnh QUIT QUIT<enter>221 <message><enter>
+34
+
+--- PAGE 35 ---
+FTP COMMANDS
+35
+
+--- PAGE 36 ---
+FTP COMMANDS WITH
+TELNE
+T
+36
+
+--- PAGE 37 ---
+LẬP TRÌNH FTP 
+SỬDỤNG TCPCLIENT
+37
+
+--- PAGE 38 ---
+LẬP TRÌNH FTP SỬ DỤNG TCPCLIENT
+Khai
+báo
+các
+biến
+public 
+trong
+frmMain
+:
+public const string 
+STR_Constant
+= “
+\ r \ n”;
+public 
+NetworkStream
+NetStrm
+;    
+public string 
+RemotePath
+= "";    
+public string server = "";
+Đối
+tượng
+của
+lớp NetworkStream
+dùng
+để
+kết
+nối
+lệnh
+FTP (port 21)
+Kết
+nối
+dữ
+liệu
+không
+bền
+vững
+(truyền
+xong
+đóng
+lại
+ngay
+) nên
+không
+cần
+khai
+báo
+toàn
+cục
+38
+
+--- PAGE 39 ---
+LẬP TRÌNH FTP SỬ DỤNG TCPCLIENT
+39
+
+--- PAGE 40 ---
+LẬP TRÌNH FTP SỬ DỤNG TCPCLIENT
+Phương pháp cơ bản là tạo một đối tượng NetStrm thuộc lớp NetworkStream để mở ra socket. Các lệnh FTP (dưới dạng string) được gửi qua socket này
+Một đối tượng của lớp StreamReader được tạo ra nhằm đọc nội dung gửi trên stream này.
+40
+
+--- PAGE 41 ---
+LẬP TRÌNH FTP SỬ DỤNG TCPCLIENT
+41
+
+--- PAGE 42 ---
+LẬP TRÌNH FTP SỬ DỤNG TCPCLIENT
+42
+
+--- PAGE 43 ---
+LẬP TRÌNH FTP SỬ DỤNG TCPCLIENT
+43
+
+--- PAGE 44 ---
+HỖ TRỢ FTP TRÊN .NET 2.0 TRỞ LÊN
+.NET 2.0 trở lên hỗ trợ FTP thông qua class WebClient, FtpWebRequest 
+Cho phép lập trình ở mức socket hoặc thông qua các đối tượng COM
+44
+
+--- PAGE 45 ---
+HỖ TRỢ FTP TRONG WEBCLIENTpublic void downloadFile()
+{ string filename = "ftp://ms.com/files/dotnetfx.exe";WebClient client = new WebClient();client.DownloadFile(filename,"dotnetfx.exe"); 
+}
+45
+
+--- PAGE 46 ---
+HỖ TRỢ FTP TRONG FTPWEBREQUEST
+46
+https://docs.microsoft.com/en
+-us/dotnet/framework/network
+-programming/ftp
+https://docs.microsoft.com/en
+-us/dotnet/framework/network
+-
+programming/how
+- to -download
+- files
+- with
+- ftp
+https://docs.microsoft.com/en
+-us/dotnet/framework/network
+-programming/how
+-
+to - upload
+- files
+- with
+- ftp
+https://docs.microsoft.com/en
+-us/dotnet/framework/network
+-programming/how
+-
+to - list
+- directory
+- contents
+- with
+- ftp
+
+--- PAGE 47 ---
+HỖ TRỢ FTP TRONG FTPWEBREQUESTprivate void Upload(string filename)
+{ FileInfo fileInf = new FileInfo(filename);string uri = "ftp://" + ftpServerIP + "/" + fileInf.Name;FtpWebRequest reqFTP;reqFTP = (FtpWebRequest)FtpWebRequest.Create(new Uri("ftp://" + ftpServerIP + "/" + fileInf.Name));reqFTP.Credentials = new NetworkCredential(ftpUserID, ftpPassword);reqFTP.KeepAlive = false;reqFTP.Method = WebRequestMethods.Ftp.UploadFile;reqFTP.UseBinary = true;reqFTP.ContentLength = fileInf.Length;int buffLength = 2048;byte[] buff = new byte[buffLength];
+47
+
+--- PAGE 48 ---
+HỖ TRỢ FTP TRONG FTPWEBREQUEST
+int contentLen;FileStream fs = fileInf.OpenRead();try { Stream strm = reqFTP.GetRequestStream();contentLen = fs.Read(buff, 0, buffLength);while (contentLen != 0  { strm.Write(buff, 0, contentLen);contentLen = fs.Read(buff, 0, buffLength);
+}strm.Close();fs.Close();
+}catch(Exception ex)    { MessageBox.Show(ex.Message, "Upload Error");
+}
+}
+48
+
+--- PAGE 49 ---
+HỖ TRỢ FTP TRONG FTPWEBREQUESTprivate void Download(string filePath, string fileName) { FtpWebRequest reqFTP;
+try { FileStream outputStream = new FileStream(filePath + "
+\ \" + fileName, FileMode.Create);
+reqFTP = (FtpWebRequest)FtpWebRequest.Create(new Uri("ftp://" + ftpServerIP + "/" + fileName)); reqFTP.Method = WebRequestMethods.Ftp.DownloadFile;reqFTP.UseBinary = true;reqFTP.Credentials = new NetworkCredential(ftpUserID, ftpPassword);FtpWebResponse response = (FtpWebResponse)reqFTP.GetResponse();Stream ftpStream = response.GetResponseStream();long cl = response.ContentLength;
+49
+
+--- PAGE 50 ---
+HỖ TRỢ FTP TRONG FTPWEBREQUEST
+int bufferSize = 2048;int readCount; byte[] buffer = new byte[bufferSize];readCount = ftpStream.Read(buffer, 0, bufferSize); while (readCount > 0) { outputStream.Write(buffer, 0, readCount);readCount = ftpStream.Read(buffer, 0, bufferSize);
+}ftpStream.Close();outputStream.Close();response.Close();
+}catch (Exception ex)  { MessageBox.Show(ex.Message);
+}
+}
+50
+
+--- PAGE 51 ---
+HỖ TRỢ FTP TRONG FTPWEBREQUESTpublic void DeleteFTP(string fileName)
+{
+try { string uri = "ftp://" + ftpServerIP + "/" + fileName;FtpWebRequest reqFTP;reqFTP = (FtpWebRequest)FtpWebRequest.Create( newUri("ftp://" + ftpServerIP + "/" + fileName)); reqFTP.Credentials = new NetworkCredential(ftpUserID, ftpPassword);reqFTP.KeepAlive = false;reqFTP.Method = WebRequestMethods.Ftp.DeleteFile;string result = String.Empty;
+51
+
+--- PAGE 52 ---
+HỖ TRỢ FTP TRONG FTPWEBREQUESTFtpWebResponse response = (FtpWebResponse)reqFTP.GetResponse();long size = response.ContentLength;Stream datastream = response.GetResponseStream();StreamReader sr = new StreamReader(datastream);result = sr.ReadToEnd();
+sr.Close();datastream.Close();response.Close();
+}catch (Exception ex)  { MessageBox.Show(ex.Message, "FTP 2.0 Delete");
+}
+}
+52
+
+--- PAGE 53 ---
+HỖ TRỢ FTP TRONG FTPWEBREQUESTprivate void btnFileSize_Click(object sender, EventArgs e)
+{ long size = GetFileSize(txtUpload.Text.Trim());MessageBox.Show(size.ToString() + " bytes");
+}
+53
+
+--- PAGE 54 ---
+HỖ TRỢ FTP TRONG FTPWEBREQUESTprivate string[] GetFilesDetailList()
+{ string[] downloadFiles;
+try { StringBuilder result = new StringBuilder();FtpWebRequest ftp;ftp = (FtpWebRequest)FtpWebRequest.Create(new Uri("ftp://" + ftpServerIP + "/")); ftp.Credentials = new NetworkCredential(ftpUserID, ftpPassword);ftp.Method = WebRequestMethods.Ftp.ListDirectoryDetails;
+54
+
+--- PAGE 55 ---
+HỖ TRỢ FTP TRONG FTPWEBREQUESTWebResponse response = ftp.GetResponse();       StreamReader reader = new StreamReader(response.GetResponseStream());string line = reader.ReadLine();while (line != null) { result.Append(line);result.Append("
+\ n");
+line = reader.ReadLine();
+}        result.Remove(result.ToString().LastIndexOf("
+\ n"), 1);
+55
+
+--- PAGE 56 ---
+HỖ TRỢ FTP TRONG FTPWEBREQUEST
+reader.Close();response.Close();return result.ToString().Split('
+\ n');
+} catch (Exception ex) {        System.Windows.Forms.MessageBox.Show(ex.Message);downloadFiles = null;return downloadFiles;
+}
+}
+56
+
+--- PAGE 57 ---
+HỖ TRỢ FTP TRONG FTPWEBREQUEST
+public string[] GetFileList()
+{ string[] downloadFiles;StringBuilder result = new StringBuilder();FtpWebRequest reqFTP;
+try    {reqFTP = (FtpWebRequest) FtpWebRequest.Create(new Uri("ftp://" + ftpServerIP + "/")); reqFTP.UseBinary = true;reqFTP.Credentials = new NetworkCredential( ftpUserID, ftpPassword);
+57
+
+--- PAGE 58 ---
+HỖ TRỢ FTP TRONG FTPWEBREQUESTreqFTP.Method = WebRequestMethods.Ftp.ListDirectory;WebResponse response = reqFTP.GetResponse();StreamReader reader = new StreamReader( response.GetResponseStream()); string line = reader.ReadLine();while (line != null) { result.Append(line);result.Append("
+\ n");
+line = reader.ReadLine();
+}
+58
+
+--- PAGE 59 ---
+HỖ TRỢ FTP TRONG FTPWEBREQUEST result.Remove(result.ToString().LastIndexOf('
+\ n'), 1);
+reader.Close();response.Close();return result.ToString().Split('
+\ n');
+} catch (Exception ex)    { System.Windows.Forms.MessageBox.Show(ex.Message);downloadFiles = null;return downloadFiles;
+}
+}
+59
+
+--- PAGE 60 ---
+HỖ TRỢ FTP TRONG FTPWEBREQUESTprivate void Rename(string currentFilename, string newFilename)
+{ FtpWebRequest reqFTP;
+try    {reqFTP = (FtpWebRequest)FtpWebRequest.Create(new Uri("ftp://" + ftpServerIP + "/" + currentFilename)); reqFTP.Method = WebRequestMethods.Ftp.Rename;reqFTP.RenameTo = newFilename;reqFTP.UseBinary = true;
+60
+
+--- PAGE 61 ---
+HỖ TRỢ FTP TRONG FTPWEBREQUESTreqFTP.Credentials = new NetworkCredential(ftpUserID, ftpPassword);FtpWebResponse response = (FtpWebResponse)reqFTP.GetResponse();Stream ftpStream = response.GetResponseStream();ftpStream.Close();response.Close();} catch (Exception ex) { MessageBox.Show(ex.Message);
+}
+}
+61
+
+--- PAGE 62 ---
+HỖ TRỢ FTP TRONG FTPWEBREQUESTprivate void MakeDir(string dirName)
+{ FtpWebRequest reqFTP;
+try {reqFTP = (FtpWebRequest)FtpWebRequest.Create(new Uri("ftp://" + ftpServerIP + "/" + dirName)); reqFTP.Method = WebRequestMethods.Ftp.MakeDirectory;reqFTP.UseBinary = true;reqFTP.Credentials = new NetworkCredential(ftpUserID, ftpPassword);
+62
+
+--- PAGE 63 ---
+HỖ TRỢ FTP TRONG FTPWEBREQUEST FtpWebResponse response = (FtpWebResponse)reqFTP.GetResponse(); Stream ftpStream = response.GetResponseStream();ftpStream.Close();response.Close();} catch (Exception ex) { MessageBox.Show(ex.Message);
+}
+}
+63
+
+--- PAGE 64 ---
+BÀI TẬP
+1. Cài đặt FPT Server và sử
+dụng Telnet
+để
+t hực 
+hiện kết 
+nối FTP và thực hiện 1 số lệnh c
+ơ bản.
+2.
+Cài đặt chương trình đã minh họa trong bài giảng của chương bằng ngôn ngữ C#
+64
