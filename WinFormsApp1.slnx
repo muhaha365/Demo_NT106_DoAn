@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="note.ini" />
+  </Folder>
+  <Project Path="Chat.Core/Chat.Core.csproj" />
+  <Project Path="Chat.Host/Chat.Host.csproj" />
+  <Project Path="Chat.Server/Chat.Server.csproj" />
+  <Project Path="Chat.Tests/Chat.Tests.csproj" />
+  <Project Path="WinFormsApp1/WinFormsApp1.csproj" />
+</Solution>
